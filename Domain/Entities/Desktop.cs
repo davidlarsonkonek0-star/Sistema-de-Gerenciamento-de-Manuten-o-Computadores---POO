@@ -1,5 +1,10 @@
-public class Desktop : Equipamento
+namespace Domain.Entities
 {
+    /// <summary>
+    /// Representa um desktop submetido a manutenção.
+    /// </summary>
+    public class Desktop : Equipamento
+    {
     private string TipoGabinete { get; set; }
     private bool TemFonteRedundante { get; set; }
 
@@ -7,6 +12,7 @@ public class Desktop : Equipamento
         : base(id, descricao, nomeCliente, dataEntrada, status)
     {
         TipoGabinete = tipoGabinete;
+        TemFonteRedundante = temFonteRedundante;
     }
 
     public override void ExibirInfo()
@@ -14,6 +20,7 @@ public class Desktop : Equipamento
         Console.WriteLine("  Tipo:       Desktop");
         base.ExibirInfo();
         Console.WriteLine($"  Gabinete:   {TipoGabinete}");
+        Console.WriteLine($"  Fonte redundante: {TemFonteRedundante}");
     }
 
     public override void RealizarManutencao()
@@ -35,4 +42,5 @@ public class Desktop : Equipamento
     {
         return $"[Desktop - ID {Id}] Status atual: {Status}";
     }
+}
 }
