@@ -1,0 +1,41 @@
+# VS Code
+.vscode/
+
+# Sistema operacional Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Arquivos temporários
+*.tmp
+*.log
+*.bak
+*.swp
+*~
+
+# Pastas de compilação / build
+bin/
+obj/
+
+# Configurações locais
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Arquivos de pacotes / dependências
+node_modules/
+*.nupkg
+
+# Arquivos de saída
+*.exe
+*.dll
+*.class
+*.jar
+
+# Outros
+.DS_Store
+.idea/
+
+# Ignorar arquivos pessoais gerados pelo editor
+*.code-workspace
