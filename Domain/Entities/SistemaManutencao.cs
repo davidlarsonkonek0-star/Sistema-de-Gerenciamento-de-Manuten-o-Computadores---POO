@@ -20,6 +20,58 @@ namespace Domain.Entities
             Console.WriteLine($"Equipamento cadastrado: {equipamento.Descricao} (ID {equipamento.Id}).");
         }
 
+        public int GetProximoId()
+        {
+            return Equipamentos.Any() ? Equipamentos.Max(e => e.Id) + 1 : 1;
+        }
+
+        public Equipamento? BuscarPorId(int id)
+        {
+            return Equipamentos.FirstOrDefault(e => e.Id == id);
+        }
+
+        public void AlterarStatus(int id, string status)
+        {
+            var equipamento = BuscarPorId(id);
+            if (equipamento == null)
+            {
+                Console.WriteLine($"Equipamento {id} não encontrado.");
+                return;
+            }
+
+            equipamento.SetStatus(status);
+            Console.WriteLine($"Status do equipamento {id} alterado para {status}.");
+        }
+
+        public void RemoverEquipamento(int id)
+        {
+            var equipamento = BuscarPorId(id);
+            if (equipamento == null)
+            {
+                Console.WriteLine($"Equipamento {id} não encontrado.");
+                return;
+            }
+
+            Equipamentos.Remove(equipamento);
+            Console.WriteLine($"Equipamento {id} removido.");
+        }
+
+        public void DiagnosticarTodos()
+        {
+            if (!Equipamentos.Any())
+            {
+                Console.WriteLine("Nenhum equipamento cadastrado para diagnosticar.");
+                return;
+            }
+
+            Console.WriteLine("--- Diagnóstico de todos os equipamentos ---");
+            foreach (var equipamento in Equipamentos)
+            {
+                equipamento.Diagnosticar();
+                Console.WriteLine(equipamento.VerificarStatus());
+            }
+        }
+
         public void ListarEquipamentos()
         {
             if (!Equipamentos.Any())

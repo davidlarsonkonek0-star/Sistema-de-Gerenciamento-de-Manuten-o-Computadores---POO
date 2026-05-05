@@ -1,6 +1,4 @@
-Console.WriteLine("Hello, World!");
-
-Console.WriteLine("Bem-vindo ao Sistema de Gerenciamento de Manutenção de Computadores!");
+using Domain.Entities;
 
 class Program
 {
