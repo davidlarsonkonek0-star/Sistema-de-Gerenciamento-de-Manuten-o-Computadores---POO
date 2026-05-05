@@ -15,6 +15,7 @@ namespace Domain.Entities
             Criticidade = criticidade;
         }
 
+        /// <summary>Exibe informações detalhadas do servidor.</summary>
         public override void ExibirInfo()
         {
             Console.WriteLine("  Tipo:       Servidor");
@@ -23,21 +24,25 @@ namespace Domain.Entities
             Console.WriteLine($"  Criticidade:{Criticidade}");
         }
 
+        /// <summary>Realiza a manutenção do servidor.</summary>
         public override void RealizarManutencao()
         {
             Console.WriteLine($"[Servidor - {NomeCliente}] Manutenção crítica em andamento. Verificando {QtdRacks} rack(s)...");
         }
 
+        /// <summary>Executa o diagnóstico do servidor.</summary>
         public override void Diagnosticar()
         {
             Console.WriteLine($"[Servidor - {NomeCliente}] Criticidade {Criticidade}. Verificando {QtdRacks} rack(s) e integridade do sistema...");
         }
 
+        /// <summary>Gera relatório resumido do servidor.</summary>
         public override string GerarRelatorio()
         {
             return $"Servidor | Cliente: {NomeCliente} | Racks: {QtdRacks} | Criticidade: {Criticidade} | Status: {Status}";
         }
 
+        /// <summary>Retorna o status atual do servidor.</summary>
         public override string VerificarStatus()
         {
             return $"[Servidor - ID {Id}] Criticidade: {Criticidade} | Status atual: {Status}";

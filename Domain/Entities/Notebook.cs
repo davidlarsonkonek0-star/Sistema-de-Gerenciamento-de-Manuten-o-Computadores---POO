@@ -15,6 +15,7 @@ namespace Domain.Entities
             ModeloBateria = modeloBateria;
         }
 
+        /// <summary>Exibe informações detalhadas do notebook.</summary>
         public override void ExibirInfo()
         {
             Console.WriteLine("  Tipo:       Notebook");
@@ -23,21 +24,25 @@ namespace Domain.Entities
             Console.WriteLine($"  Bateria:    {ModeloBateria}");
         }
 
+        /// <summary>Realiza a manutenção do notebook.</summary>
         public override void RealizarManutencao()
         {
             Console.WriteLine($"[Notebook - {NomeCliente}] Realizando limpeza interna e verificação de hardware...");
         }
 
+        /// <summary>Executa o diagnóstico do notebook.</summary>
         public override void Diagnosticar()
         {
             Console.WriteLine($"[Notebook - {NomeCliente}] Verificando bateria {ModeloBateria}... possível desgaste, troca recomendada.");
         }
 
+        /// <summary>Gera relatório resumido do notebook.</summary>
         public override string GerarRelatorio()
         {
             return $"Notebook | Cliente: {NomeCliente} | Marca: {Marca} | Bateria: {ModeloBateria} | Status: {Status}";
         }
 
+        /// <summary>Retorna o status atual do notebook.</summary>
         public override string VerificarStatus()
         {
             return $"[Notebook - ID {Id}] Status atual: {Status}";

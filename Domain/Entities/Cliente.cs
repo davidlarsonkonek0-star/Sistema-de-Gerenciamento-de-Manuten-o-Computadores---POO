@@ -1,6 +1,9 @@
 
 namespace Domain.Entities
 {
+    /// <summary>
+    /// Representa um cliente que possui equipamentos cadastrados.
+    /// </summary>
     public class Cliente : Pessoa
     {
         public string? Telefone { get; set; }
@@ -9,6 +12,9 @@ namespace Domain.Entities
         public List<Equipamento> Equipamentos { get; set; } = new();
 
 
+        /// <summary>
+        /// Adiciona um equipamento à lista do cliente.
+        /// </summary>
         public void AdicionarEquipamento(Equipamento equipamento)
         {
             if (equipamento == null)

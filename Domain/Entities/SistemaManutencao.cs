@@ -12,6 +12,7 @@ namespace Domain.Entities
         public List<OrdemServico> Ordens { get; private set; } = new();
         public List<Pagamento> Pagamentos { get; private set; } = new();
 
+        /// <summary>Adiciona um equipamento ao sistema.</summary>
         public void CadastrarEquipamento(Equipamento equipamento)
         {
             equipamento.Id = Equipamentos.Count + 1;
@@ -25,11 +26,13 @@ namespace Domain.Entities
             return Equipamentos.Any() ? Equipamentos.Max(e => e.Id) + 1 : 1;
         }
 
+        /// <summary>Retorna o próximo identificador disponível para equipamentos.</summary>
         public Equipamento? BuscarPorId(int id)
         {
             return Equipamentos.FirstOrDefault(e => e.Id == id);
         }
 
+        /// <summary>Altera o status de um equipamento existente.</summary>
         public void AlterarStatus(int id, string status)
         {
             var equipamento = BuscarPorId(id);
@@ -43,6 +46,7 @@ namespace Domain.Entities
             Console.WriteLine($"Status do equipamento {id} alterado para {status}.");
         }
 
+        /// <summary>Remove um equipamento do sistema.</summary>
         public void RemoverEquipamento(int id)
         {
             var equipamento = BuscarPorId(id);
@@ -56,6 +60,7 @@ namespace Domain.Entities
             Console.WriteLine($"Equipamento {id} removido.");
         }
 
+        /// <summary>Executa diagnóstico em todos os equipamentos cadastrados.</summary>
         public void DiagnosticarTodos()
         {
             if (!Equipamentos.Any())
@@ -72,6 +77,7 @@ namespace Domain.Entities
             }
         }
 
+        /// <summary>Lista todos os equipamentos cadastrados no sistema.</summary>
         public void ListarEquipamentos()
         {
             if (!Equipamentos.Any())
@@ -86,6 +92,7 @@ namespace Domain.Entities
             }
         }
 
+        /// <summary>Abre uma nova ordem de serviço no sistema.</summary>
         public void AbrirOrdem(OrdemServico ordem)
         {
             ordem.Id = Ordens.Count + 1;
@@ -95,6 +102,7 @@ namespace Domain.Entities
             Console.WriteLine($"Ordem de serviço aberta: {ordem.Id}.");
         }
 
+        /// <summary>Registra um pagamento para uma ordem existente.</summary>
         public void RegistrarPagamento(Pagamento pagamento, int ordemId)
         {
             var ordem = GetOrdemById(ordemId);
@@ -109,6 +117,7 @@ namespace Domain.Entities
             ordem.RegistrarPagamento(pagamento);
         }
 
+        /// <summary>Imprime o relatório geral do sistema.</summary>
         public void GerarRelatorioGeral()
         {
             Console.WriteLine("--- Relatório Geral do Sistema ---");
@@ -126,6 +135,7 @@ namespace Domain.Entities
             }
         }
 
+        /// <summary>Busca uma ordem de serviço pelo ID.</summary>
         public OrdemServico? GetOrdemById(int id)
         {
             return Ordens.FirstOrDefault(ordem => ordem.Id == id);

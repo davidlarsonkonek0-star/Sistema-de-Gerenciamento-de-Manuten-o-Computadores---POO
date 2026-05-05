@@ -53,9 +53,16 @@ namespace Domain.Entities
             Console.WriteLine($"  Entrada:    {DataEntrada}");
         }
 
+        /// <summary>Realiza a manutenção específica do equipamento.</summary>
         public abstract void RealizarManutencao();
+
+        /// <summary>Executa o diagnóstico do equipamento.</summary>
         public abstract void Diagnosticar();
+
+        /// <summary>Gera um relatório de status do equipamento.</summary>
         public abstract string GerarRelatorio();
+
+        /// <summary>Retorna o status atual do equipamento.</summary>
         public abstract string VerificarStatus();
     }
 }
