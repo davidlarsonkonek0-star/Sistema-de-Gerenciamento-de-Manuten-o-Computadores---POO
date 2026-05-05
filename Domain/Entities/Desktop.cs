@@ -1,3 +1,4 @@
+namespace Domain.Entities;
 public class Desktop : Equipamento
 {
     private string TipoGabinete {get; set;}

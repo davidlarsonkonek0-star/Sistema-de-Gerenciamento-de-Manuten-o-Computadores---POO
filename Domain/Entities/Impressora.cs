@@ -1,3 +1,4 @@
+    namespace Domain.Entities;
     public class Impressora : Equipamento
     {
         private string TipoImpressao { get; set; }

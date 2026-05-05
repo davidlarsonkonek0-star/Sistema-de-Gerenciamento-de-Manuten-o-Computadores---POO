@@ -1,3 +1,4 @@
+namespace Domain.Entities;
 public class Notebook : Equipamento
 {
     private string Marca { get; set; }
