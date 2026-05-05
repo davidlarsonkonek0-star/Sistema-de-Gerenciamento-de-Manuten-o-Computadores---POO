@@ -1,6 +1,3 @@
-# VS Code
-.vscode/
-
 # Sistema operacional Windows
 Thumbs.db
 Desktop.ini
@@ -13,9 +10,12 @@ $RECYCLE.BIN/
 *.swp
 *~
 
-# Pastas de compilação / build
+# Ignorar pastas de build do .NET
 [Bb]in/
 [Oo]bj/
+
+# Ignorar configurações do VS Code
+.vscode/
 
 # Configurações locais
 *.user
