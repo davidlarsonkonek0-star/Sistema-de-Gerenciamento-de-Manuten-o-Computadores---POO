@@ -1,5 +1,0 @@
-C:\Users\diosn\OneDrive\Documentos\Projetos Vs Code\Sistema-de-Gerenciamento-de-Manuten-o-Computadores---POO\obj\Debug\net10.0\Sistema-de-Gerenciamento-de-Manuten-o-Computadores---POO.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\diosn\OneDrive\Documentos\Projetos Vs Code\Sistema-de-Gerenciamento-de-Manuten-o-Computadores---POO\obj\Debug\net10.0\Sistema-de-Gerenciamento-de-Manuten-o-Computadores---POO.AssemblyInfoInputs.cache
-C:\Users\diosn\OneDrive\Documentos\Projetos Vs Code\Sistema-de-Gerenciamento-de-Manuten-o-Computadores---POO\obj\Debug\net10.0\Sistema-de-Gerenciamento-de-Manuten-o-Computadores---POO.AssemblyInfo.cs
-C:\Users\diosn\OneDrive\Documentos\Projetos Vs Code\Sistema-de-Gerenciamento-de-Manuten-o-Computadores---POO\obj\Debug\net10.0\Sistema-de-Gerenciamento-de-Manuten-o-Computadores---POO.csproj.CoreCompileInputs.cache
-C:\Users\diosn\OneDrive\Documentos\Projetos Vs Code\Sistema-de-Gerenciamento-de-Manuten-o-Computadores---POO\obj\Debug\net10.0\Sistema-de-Gerenciamento-de-Manuten-o-Computadores---POO.sourcelink.json
