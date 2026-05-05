@@ -4,10 +4,10 @@ namespace Domain.Entities
 {
     public abstract class Equipamento : IManutencao, IDiagnostico
     {
-        public int Id { get; protected set; }
+        public int Id { get; set; }
         public string Descricao { get; protected set; }
         protected string NomeCliente { get; set; }
-        protected string DataEntrada { get; set; }
+        public string DataEntrada { get; set; }
         protected string Status { get; set; }
 
         public Equipamento(int id, string descricao, string nomeCliente, string dataEntrada, string status)
