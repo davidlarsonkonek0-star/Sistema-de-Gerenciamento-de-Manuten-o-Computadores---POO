@@ -1,8 +1,8 @@
-﻿Console.WriteLine("Hello, World!");
+Console.WriteLine("Hello, World!");
 
 Console.WriteLine("Bem-vindo ao Sistema de Gerenciamento de Manutenção de Computadores!");
 
-﻿class Program
+class Program
 {
     static SistemaManutencao sistema = new SistemaManutencao();
 

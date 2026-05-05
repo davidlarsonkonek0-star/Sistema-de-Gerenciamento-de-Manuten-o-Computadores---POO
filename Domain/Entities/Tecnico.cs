@@ -18,7 +18,7 @@ namespace Domain.Entities
         {
             if (equipamento == null)
                 throw new ArgumentNullException(nameof(equipamento), "Equipamento não pode ser nulo");
-            
+
             Console.WriteLine($"Técnico {Nome} ({Especialidade}) realizando manutenção em {equipamento.Descricao}.");
             equipamento.RealizarManutencao();
         }
@@ -30,7 +30,7 @@ namespace Domain.Entities
         {
             if (equipamento == null)
                 throw new ArgumentNullException(nameof(equipamento), "Equipamento não pode ser nulo");
-            
+
             Console.WriteLine($"Técnico {Nome} diagnosticando {equipamento.Descricao}.");
             equipamento.Diagnosticar();
         }
@@ -42,7 +42,7 @@ namespace Domain.Entities
         {
             if (ordem == null)
                 throw new ArgumentNullException(nameof(ordem), "Ordem não pode ser nula");
-            
+
             Ordens.Add(ordem);
             Console.WriteLine($"Ordem {ordem.Id} atribuída ao técnico {Nome}.");
         }

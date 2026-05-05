@@ -2,6 +2,7 @@ using Domain.Entities;
 using Domain.Interface;
 using Domain.Services;
 using Domain.ValueObjects;
+
 using Xunit;
 
 namespace Tests.System
@@ -103,10 +104,10 @@ namespace Tests.System
 
             // ===== VALIDA ESTADOS FINAIS =====
             Assert.Equal(2, sistema.Pagamentos.Count);
-            
+
             var ordem1Final = sistema.GetOrdemById(1);
             var ordem2Final = sistema.GetOrdemById(2);
-            
+
             Assert.Equal("Pago", ordem1Final?.Status);
             Assert.Equal("Pago", ordem2Final?.Status);
 

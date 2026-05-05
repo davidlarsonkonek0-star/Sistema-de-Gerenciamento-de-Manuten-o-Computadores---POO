@@ -7,7 +7,7 @@ namespace Domain.Entities
 
         public string? Telefone { get; set; }
 
-    
+
         public List<Equipamento> Equipamentos { get; set; } = new();
 
 
@@ -15,7 +15,7 @@ namespace Domain.Entities
         {
             if (equipamento == null)
                 throw new ArgumentNullException(nameof(equipamento), "Equipamento não pode ser nulo");
-            
+
             Equipamentos.Add(equipamento);
             Console.WriteLine($"Equipamento '{equipamento.Descricao}' adicionado ao cliente {Nome}.");
         }

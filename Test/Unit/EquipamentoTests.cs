@@ -1,5 +1,6 @@
 using Domain.Entities;
 using Domain.ValueObjects;
+
 using Xunit;
 
 namespace Tests.Unit
@@ -63,10 +64,10 @@ namespace Tests.Unit
         public void Servidor_ExibirInfo_DeveExibirInformacoes()
         {
             // Arrange
-            var servidor = new Servidor 
-            { 
-                Id = 1, 
-                Descricao = "Servidor Principal", 
+            var servidor = new Servidor
+            {
+                Id = 1,
+                Descricao = "Servidor Principal",
                 QtdRacks = 4,
                 DataEntrada = "2026-05-01"
             };

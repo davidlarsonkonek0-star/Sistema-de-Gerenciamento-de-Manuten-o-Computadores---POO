@@ -1,7 +1,7 @@
 public class Desktop : Equipamento
 {
-    private string TipoGabinete {get; set;}
-    private bool TemFonteRedundante {get; set;}
+    private string TipoGabinete { get; set; }
+    private bool TemFonteRedundante { get; set; }
 
     public Desktop(int id, string descricao, string nomeCliente, string dataEntrada, string status, string tipoGabinete, bool temFonteRedundante)
         : base(id, descricao, nomeCliente, dataEntrada, status)

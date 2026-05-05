@@ -1,5 +1,6 @@
 using Domain.Entities;
 using Domain.ValueObjects;
+
 using Xunit;
 
 namespace Tests.Integration
@@ -84,11 +85,11 @@ namespace Tests.Integration
             var equipamento = new Impressora { Id = 1, Descricao = "Impressora Xerox", NivelToner = 0.3 };
             cliente.AdicionarEquipamento(equipamento);
 
-            var ordem = new OrdemServico 
-            { 
-                Id = 1, 
-                Servico = "Troca de toner", 
-                ValorTotal = new Money(2000, "BRL") 
+            var ordem = new OrdemServico
+            {
+                Id = 1,
+                Servico = "Troca de toner",
+                ValorTotal = new Money(2000, "BRL")
             };
             tecnico.Ordens.Add(ordem);
 

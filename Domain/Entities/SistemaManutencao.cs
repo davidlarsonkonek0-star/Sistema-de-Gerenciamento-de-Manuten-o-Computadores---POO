@@ -1,5 +1,6 @@
-using Domain.ValueObjects;
 using System.Linq;
+
+using Domain.ValueObjects;
 
 namespace Domain.Entities
 {

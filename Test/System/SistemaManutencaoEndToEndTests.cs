@@ -1,5 +1,6 @@
 using Domain.Entities;
 using Domain.ValueObjects;
+
 using Xunit;
 
 namespace Tests.System
@@ -160,7 +161,7 @@ namespace Tests.System
 
             // STAGE 4: Valida estados finais
             Assert.Equal(2, sistema.Pagamentos.Count);
-            
+
             var ordem1 = sistema.GetOrdemById(1);
             var ordem2 = sistema.GetOrdemById(2);
             var ordem3 = sistema.GetOrdemById(3);
