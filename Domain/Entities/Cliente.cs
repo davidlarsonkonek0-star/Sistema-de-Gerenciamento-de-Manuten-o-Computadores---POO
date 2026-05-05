@@ -1,20 +1,16 @@
 
 namespace Domain.Entities
 {
-    /// <summary>
-    /// Representa um cliente que pode ter múltiplos equipamentos
-    /// </summary>
+
     public class Cliente : Pessoa
     {
-        /// <summary>Telefone de contato do cliente</summary>
+
         public string? Telefone { get; set; }
 
-        /// <summary>Lista de equipamentos do cliente</summary>
+    
         public List<Equipamento> Equipamentos { get; set; } = new();
 
-        /// <summary>
-        /// Adiciona um equipamento à lista do cliente
-        /// </summary>
+
         public void AdicionarEquipamento(Equipamento equipamento)
         {
             if (equipamento == null)
