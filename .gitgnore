@@ -14,8 +14,8 @@ $RECYCLE.BIN/
 *~
 
 # Pastas de compilação / build
-bin/
-obj/
+[Bb]in/
+[Oo]bj/
 
 # Configurações locais
 *.user
