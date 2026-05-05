@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sistema-de-Gerenciamento-de-Manuten-o-Computadores---POO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+592f23b0ac931201d7debb07ac1eb51da5facfd1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ca67c600546c6112143d5712b7758bbcf2e6552")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sistema-de-Gerenciamento-de-Manuten-o-Computadores---POO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sistema-de-Gerenciamento-de-Manuten-o-Computadores---POO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
