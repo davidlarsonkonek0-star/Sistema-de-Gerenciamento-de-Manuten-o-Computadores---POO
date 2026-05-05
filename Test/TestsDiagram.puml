@@ -1,0 +1,89 @@
+@startuml
+title Diagrama UML dos Testes - Projeto POO
+
+package "Tests.Unit" {
+  class MoneyTests
+  class EquipamentoTests
+  class PagamentoTests
+  class OrdemServicoTests
+}
+
+package "Tests.Integration" {
+  class SistemaManutencaoIntegrationTests
+  class OrdemServicoRepositoryIntegrationTests
+  class ClienteTecnicoIntegrationTests
+}
+
+package "Tests.System" {
+  class SistemaManutencaoEndToEndTests
+  class CenarioRealSystemTests
+}
+
+package "Domain.Entities" {
+  class Money
+  class Equipamento
+  class Notebook
+  class Desktop
+  class Impressora
+  class Servidor
+  class Pagamento
+  class PagamentoPix
+  class PagamentoCartao
+  class OrdemServico
+  class SistemaManutencao
+  class Cliente
+  class Tecnico
+}
+
+package "Domain.Services" {
+  class OrdemServicoService
+}
+
+package "Domain.Interface" {
+  class IOrdemServicoRepository
+}
+
+MoneyTests ..> Money : testa
+EquipamentoTests ..> Notebook : testa
+EquipamentoTests ..> Desktop : testa
+EquipamentoTests ..> Impressora : testa
+EquipamentoTests ..> Servidor : testa
+PagamentoTests ..> PagamentoPix : testa
+PagamentoTests ..> PagamentoCartao : testa
+OrdemServicoTests ..> OrdemServico : testa
+
+SistemaManutencaoIntegrationTests ..> SistemaManutencao : testa
+SistemaManutencaoIntegrationTests ..> Equipamento : testa
+SistemaManutencaoIntegrationTests ..> OrdemServico : testa
+SistemaManutencaoIntegrationTests ..> Pagamento : testa
+
+OrdemServicoRepositoryIntegrationTests ..> OrdemServicoService : testa
+OrdemServicoRepositoryIntegrationTests ..> IOrdemServicoRepository : usa
+OrdemServicoRepositoryIntegrationTests ..> OrdemServico : testa
+
+ClienteTecnicoIntegrationTests ..> Cliente : testa
+ClienteTecnicoIntegrationTests ..> Tecnico : testa
+ClienteTecnicoIntegrationTests ..> Notebook : testa
+ClienteTecnicoIntegrationTests ..> Desktop : testa
+ClienteTecnicoIntegrationTests ..> Impressora : testa
+ClienteTecnicoIntegrationTests ..> OrdemServico : testa
+
+SistemaManutencaoEndToEndTests ..> SistemaManutencao : testa
+SistemaManutencaoEndToEndTests ..> Cliente : usa
+SistemaManutencaoEndToEndTests ..> Tecnico : usa
+SistemaManutencaoEndToEndTests ..> Notebook : usa
+SistemaManutencaoEndToEndTests ..> Desktop : usa
+SistemaManutencaoEndToEndTests ..> Impressora : usa
+SistemaManutencaoEndToEndTests ..> PagamentoPix : usa
+SistemaManutencaoEndToEndTests ..> PagamentoCartao : usa
+
+CenarioRealSystemTests ..> SistemaManutencao : testa
+CenarioRealSystemTests ..> OrdemServicoService : usa
+CenarioRealSystemTests ..> InMemoryOrdemServicoRepository : usa
+CenarioRealSystemTests ..> Cliente : usa
+CenarioRealSystemTests ..> Tecnico : usa
+CenarioRealSystemTests ..> Servidor : usa
+CenarioRealSystemTests ..> Notebook : usa
+CenarioRealSystemTests ..> Impressora : usa
+
+@enduml
