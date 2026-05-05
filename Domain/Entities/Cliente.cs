@@ -1,10 +1,8 @@
 
 namespace Domain.Entities
 {
-
     public class Cliente : Pessoa
     {
-
         public string? Telefone { get; set; }
 
 

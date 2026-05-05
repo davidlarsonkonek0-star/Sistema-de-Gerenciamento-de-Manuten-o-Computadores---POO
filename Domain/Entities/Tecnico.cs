@@ -10,7 +10,7 @@ namespace Domain.Entities
 
         /// <summary>Lista de ordens de serviço atribuídas ao técnico</summary>
         public List<OrdemServico> Ordens { get; set; } = new();
-
+        
         /// <summary>
         /// Realiza manutenção em um equipamento
         /// </summary>

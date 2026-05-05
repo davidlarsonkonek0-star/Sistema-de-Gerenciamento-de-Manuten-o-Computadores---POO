@@ -1,9 +1,11 @@
 using System.Linq;
-
 using Domain.ValueObjects;
 
 namespace Domain.Entities
 {
+    /// <summary>
+    /// Representa o sistema de gerenciamento de manutenção.
+    /// </summary>
     public class SistemaManutencao
     {
         public List<Equipamento> Equipamentos { get; private set; } = new();

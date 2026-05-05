@@ -2,13 +2,25 @@ using Domain.Interface;
 
 namespace Domain.Entities
 {
+    /// <summary>
+    /// Representa um equipamento que pode ser diagnosticado e mantido.
+    /// </summary>
     public abstract class Equipamento : IManutencao, IDiagnostico
     {
-        public int Id { get; protected set; }
-        public string Descricao { get; protected set; }
-        protected string NomeCliente { get; set; }
-        protected string DataEntrada { get; set; }
-        protected string Status { get; set; }
+        /// <summary>Identificador do equipamento.</summary>
+        public int Id { get; set; }
+
+        /// <summary>Descrição do problema ou serviço a ser realizado.</summary>
+        public string Descricao { get; set; } = string.Empty;
+
+        /// <summary>Nome do cliente proprietário do equipamento.</summary>
+        public string NomeCliente { get; set; } = string.Empty;
+
+        /// <summary>Data de entrada do equipamento no serviço.</summary>
+        public string DataEntrada { get; set; } = string.Empty;
+
+        /// <summary>Status atual do equipamento.</summary>
+        public string Status { get; set; } = string.Empty;
 
         public Equipamento(int id, string descricao, string nomeCliente, string dataEntrada, string status)
         {
@@ -19,15 +31,19 @@ namespace Domain.Entities
             Status = status;
         }
 
+        /// <summary>Retorna o identificador do equipamento.</summary>
         public int GetId()
         {
             return Id;
         }
 
+        /// <summary>Atualiza o status do equipamento.</summary>
         public void SetStatus(string status)
         {
             Status = status;
         }
+
+        /// <summary>Exibe informações básicas do equipamento.</summary>
         public virtual void ExibirInfo()
         {
             Console.WriteLine($"  ID:         {Id}");
