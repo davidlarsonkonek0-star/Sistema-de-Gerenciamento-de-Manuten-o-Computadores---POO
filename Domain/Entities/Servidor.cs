@@ -24,6 +24,14 @@ namespace Domain.Entities
             Console.WriteLine($"  Racks:      {QtdRacks}");
             Console.WriteLine($"  Criticidade:{Criticidade}");
         }
+        /// <summary>Exibe informações detalhadas do servidor.</summary>
+        public override void ExibirInfo()
+        {
+            Console.WriteLine("  Tipo:       Servidor");
+            base.ExibirInfo();
+            Console.WriteLine($"  Racks:      {QtdRacks}");
+            Console.WriteLine($"  Criticidade:{Criticidade}");
+        }
 
         /// <summary>Realiza a manutenção do servidor.</summary>
         public override void RealizarManutencao()
@@ -36,7 +44,17 @@ namespace Domain.Entities
         {
             Console.WriteLine($"[Servidor - {NomeCliente}] Criticidade {Criticidade}. Verificando {QtdRacks} rack(s) e integridade do sistema...");
         }
+        /// <summary>Executa o diagnóstico do servidor.</summary>
+        public override void Diagnosticar()
+        {
+            Console.WriteLine($"[Servidor - {NomeCliente}] Criticidade {Criticidade}. Verificando {QtdRacks} rack(s) e integridade do sistema...");
+        }
 
+        /// <summary>Gera relatório resumido do servidor.</summary>
+        public override string GerarRelatorio()
+        {
+            return $"Servidor | Cliente: {NomeCliente} | Racks: {QtdRacks} | Criticidade: {Criticidade} | Status: {Status}";
+        }
         /// <summary>Gera relatório resumido do servidor.</summary>
         public override string GerarRelatorio()
         {

@@ -1,23 +1,27 @@
 
 namespace Domain.Entities
 {
-
+    /// <summary>
+    /// Representa um cliente que possui equipamentos cadastrados.
+    /// </summary>
     public class Cliente : Pessoa
     {
-
         public string? Telefone { get; set; }
 
-        /// <summary>Lista de equipamentos do cliente</summary>
+    /// <summary>Lista de equipamentos do cliente</summary>
         public List<Equipamento> Equipamentos { get; set; } = new();
 
         /// <summary>
         /// Adiciona um equipamento à lista do cliente
         /// </summary>
+        /// <summary>
+        /// Adiciona um equipamento à lista do cliente.
+        /// </summary>
         public void AdicionarEquipamento(Equipamento equipamento)
         {
             if (equipamento == null)
                 throw new ArgumentNullException(nameof(equipamento), "Equipamento não pode ser nulo");
-            
+
             Equipamentos.Add(equipamento);
             Console.WriteLine($"Equipamento '{equipamento.Descricao}' adicionado ao cliente {Nome}.");
         }

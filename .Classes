@@ -1,0 +1,132 @@
+Sistema de controle de manutenção de computadores	
+
+C Program		
+
++ Main(args: string[]): void
++ iniciarSistema(): void
++ exibirMenu(): void
++ lerOpcao(): int
++ executarOpcao(opcao: int): void
++ abrirOrdemServico(): void
+
+Domain	
+
+Entities	
+
+usa
+usa
+
+Cliente	<<class>>
+- telefone: string	+ adicionarEquipamento(e: Equipamento): void
++ listarEquipamentos(): void
+
+Cliente
+Notebook	<<class>>
+- marca: string	+ realizarManutencao(): void
++ diagnosticar(): void
++ gerarRelatorio(): string
+
+Desktop	<<class>>
+- tipoGabinete: string	+ realizarManutencao(): void
++ diagnosticar(): void
++ gerarRelatorio(): string
+
+Money	<<class>>
+- amountMinor: long
+- currency: string	+ toDecimal(): decimal
++ toString(): string
+
+PagamentoPix	<<class>>
+- chavePix: string	+ processar(): void
++ exibirResumo(): string
+
+Pessoa	<<abstrata>>
+- id: string
+- nome: string	
+
+valor
+
+OrdemServicoService	<<service>>
+- repositorio: IOrdemServicoRepository	+ abrirOrdem(): void
++ calcularOrcamento(): Money
++ finalizarOrdem(): void
+
+tecnico
+Tecnico	<<class>>
+- especialidade: string	+ realizarServico(e: Equipamento): void
++ listarOrdens(): void
+usa
+
+Impressora	<<class>>
+- nivelToner: double	+ realizarManutencao(): void
++ diagnosticar(): void
++ gerarRelatorio(): string
+
+Pagamento	<<abstrata>>
+- id: string
+- pagador: string
+- valor: Money	+ processar(): void
++ exibirResumo(): string
+Services	
+Implementa
+Pagamento
+
+Equipamento	<<abstrata>>
+- id: int
+- descricao: string
+- dataEntrada: string
+- status: string	+ exibirInfo(): void
++ verificarStatus(): string
+# realizarManutencao(): void
+# diagnosticar(): void
+# gerarRelatorio(): string
+
+usa
+
+Pagamentocartao	<<class>>
+- numeroMascarado: string	+ processar(): void
++ exibirResumo(): string
+
+
+
+Realiza
+
+OrdemServico	<<class>>
+- id: int
+- dataEntrada: string
+- status: string
+- servico: string
+- prioridade: string
+- valorTotal: Money
+- pagamento: Pagamento	+ exibirResumo(): void
++ calcularOrcamento(): Money
++ registrarPagamento(p: Pagamento): void
+
+Servidor	<<class>>
+- qtdRacks: int	+ realizarManutencao(): void
++ diagnosticar(): void
++ gerarRelatorio(): string
+
+Pagamentos
+
+SistemaManutencao	<<class>>
+- equipamentos: list<Equipamento>
+- ordens: list<OrdemServico>
+- pagamentos: list<Pagamento>	+ cadastrarEquipamento(e: Equipamento): void
++ listarEquipamentos(): void
++ abrirOrdem(o: OrdemServico): void
++ registrarPagamento(p: Pagamento): void
++ gerarRelatorioGeral(): void
+
+Contracts	
+
+IPagamento	<<interface>>	+ processar(): void
++ exibirResumo(): string
+Realiza
+
+IDiagnostico	<<interface>>	+ diagnosticar(): void
++ verificarStatus(): string
+Ordens
+
+IManutencao	<<interface>>	+ realizarManutencao(): void
++ gerarRelatorio(): string

@@ -1,5 +1,7 @@
-﻿using Domain.Entities;
+using Domain.Entities;
+using Domain.Entities;
 
+class Program
 class Program
 {
     static SistemaManutencao sistema = new SistemaManutencao();

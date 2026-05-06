@@ -7,7 +7,6 @@ namespace Domain.Entities
     /// </summary>
     public abstract class Equipamento : IManutencao, IDiagnostico
     {
-        /// <summary>Identificador do equipamento.</summary>
         public int Id { get; set; }
 
         /// <summary>Descrição do problema ou serviço a ser realizado.</summary>
