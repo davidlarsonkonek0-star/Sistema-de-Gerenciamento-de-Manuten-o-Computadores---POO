@@ -1,8 +1,6 @@
-﻿Console.WriteLine("Hello, World!");
+﻿using Domain.Entities;
 
-Console.WriteLine("Bem-vindo ao Sistema de Gerenciamento de Manutenção de Computadores!");
-
-﻿class Program
+class Program
 {
     static SistemaManutencao sistema = new SistemaManutencao();
 

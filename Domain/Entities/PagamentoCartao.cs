@@ -1,5 +1,8 @@
 namespace Domain.Entities
 {
+    /// <summary>
+    /// Representa um pagamento realizado por cartão.
+    /// </summary>
     public class PagamentoCartao : Pagamento
     {
         public string NumeroMascarado { get; set; } = string.Empty;
