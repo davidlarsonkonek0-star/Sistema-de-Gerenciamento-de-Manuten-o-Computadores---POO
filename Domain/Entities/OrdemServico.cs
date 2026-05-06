@@ -8,7 +8,7 @@ namespace Domain.Entities
     public class OrdemServico
     {
         public int Id { get; set; }
-        public string DataEntrada { get; set; } = string.Empty;
+        public DateTime DataEntrada { get; set; }
         public string Status { get; set; } = "Nova";
         public string Servico { get; set; } = string.Empty;
         public string Prioridade { get; set; } = "Normal";
@@ -33,5 +33,17 @@ namespace Domain.Entities
             Pagamento = pagamento;
             Status = "Pago";
         }
+
+        public void Abrir()
+        {
+            Status = "Aberta";
+            DataEntrada = DateTime.Now;
+        }
+
+        public void Finalizar()
+        {
+            Status = "Finalizada";
+        }
+
     }
 }
