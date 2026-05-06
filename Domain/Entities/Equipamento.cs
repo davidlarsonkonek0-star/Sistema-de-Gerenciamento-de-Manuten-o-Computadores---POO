@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 using Domain.Interface;
 
 namespace Domain.Entities
@@ -7,7 +9,7 @@ namespace Domain.Entities
     /// </summary>
     public abstract class Equipamento : IManutencao, IDiagnostico
     {
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
         /// <summary>Descrição do problema ou serviço a ser realizado.</summary>
         public string Descricao { get; set; } = string.Empty;
@@ -34,6 +36,13 @@ namespace Domain.Entities
         public virtual string ExibirInfo()
         {
           return $"ID: {Id} | Cliente: {NomeCliente} | Problema: {Descricao} | Status: {Status}";
+        }
+
+        public void SetStatus(string status)
+        {
+            if (string.IsNullOrWhiteSpace(status))
+                throw new ArgumentException("Status invalido");
+            Status = status;
         }
 
         /// <summary>Realiza a manutenção específica do equipamento.</summary>
