@@ -37,7 +37,7 @@ namespace Domain.Entities
         /// <summary>Gera relatório resumido da impressora.</summary>
         public override string GerarRelatorio()
         {
-            return $"Impressora | Cliente: {NomeCliente} | Tipo: {TipoImpressao} | Toner: {NivelToner}% | Status: {Status}";
+            return $"Impressora | Cliente: {NomeCliente} | Tipo: {TipoImpressao} | Toner: {NivelToner} | Status: {Status}";
         }
 
         /// <summary>Retorna o status atual da impressora.</summary>
