@@ -1,3 +1,8 @@
+namespace Domain.Entities;
+public class Desktop : Equipamento
+{
+    private string TipoGabinete {get; set;}
+    private bool TemFonteRedundante {get; set;}
 namespace Domain.Entities
 {
     /// <summary>

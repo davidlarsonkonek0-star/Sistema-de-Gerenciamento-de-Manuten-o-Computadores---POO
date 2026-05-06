@@ -8,10 +8,12 @@ namespace Domain.Entities
     {
         public string? Telefone { get; set; }
 
-
+    /// <summary>Lista de equipamentos do cliente</summary>
         public List<Equipamento> Equipamentos { get; set; } = new();
 
-
+        /// <summary>
+        /// Adiciona um equipamento à lista do cliente
+        /// </summary>
         /// <summary>
         /// Adiciona um equipamento à lista do cliente.
         /// </summary>

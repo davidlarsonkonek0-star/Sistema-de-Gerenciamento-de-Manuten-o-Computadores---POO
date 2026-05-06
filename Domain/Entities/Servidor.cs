@@ -1,3 +1,8 @@
+namespace Domain.Entities;
+public class Servidor : Equipamento
+{
+    private int NumeroRacks { get; set; }
+    private string Criticidade { get; set; }
 namespace Domain.Entities
 {
     /// <summary>

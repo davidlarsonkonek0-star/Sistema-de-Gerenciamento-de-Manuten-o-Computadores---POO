@@ -21,6 +21,11 @@ namespace Domain.Entities
 
         /// <summary>Status atual do equipamento.</summary>
         public string Status { get; set; } = string.Empty;
+        public int Id { get; set; }
+        public string Descricao { get; protected set; }
+        protected string NomeCliente { get; set; }
+        public string DataEntrada { get; set; }
+        protected string Status { get; set; }
 
         public Equipamento(int id, string descricao, string nomeCliente, string dataEntrada, string status)
         {

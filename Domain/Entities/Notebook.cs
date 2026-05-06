@@ -1,3 +1,8 @@
+namespace Domain.Entities;
+public class Notebook : Equipamento
+{
+    private string Marca { get; set; }
+    private string ModeloBateria { get; set; }
 namespace Domain.Entities
 {
     /// <summary>
