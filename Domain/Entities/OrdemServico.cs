@@ -16,13 +16,9 @@ namespace Domain.Entities
         public Pagamento? Pagamento { get; private set; }
 
         /// <summary>Exibe o resumo da ordem de serviço.</summary>
-        public void ExibirResumo()
+        public string ExibirResumo()
         {
-            Console.WriteLine($"Ordem {Id} | Serviço: {Servico} | Prioridade: {Prioridade} | Status: {Status} | Valor: {ValorTotal}");
-            if (Pagamento != null)
-            {
-                Console.WriteLine($"Pagamento registrado: {Pagamento.ExibirResumo()}");
-            }
+            return $"Ordem  {Id} | Serviço: {Servico}";
         }
 
         /// <summary>Retorna o orçamento calculado para a ordem.</summary>
@@ -36,7 +32,6 @@ namespace Domain.Entities
         {
             Pagamento = pagamento;
             Status = "Pago";
-            Console.WriteLine($"Pagamento registrado para ordem {Id}.");
         }
     }
 }
