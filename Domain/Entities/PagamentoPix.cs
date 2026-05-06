@@ -1,3 +1,5 @@
+using Domain.ValueObjects;
+
 namespace Domain.Entities
 {
     /// <summary>
@@ -6,6 +8,11 @@ namespace Domain.Entities
     public class PagamentoPix : Pagamento
     {
         public string ChavePix { get; set; } = string.Empty;
+
+        public PagamentoPix (string pagador, decimal valor, string chavepix) : base (pagador, new Money((long) Math.Round (valor * 100), "BRL"))
+        {
+            ChavePix = chavepix;
+        }
 
         public override void Processar()
         {
