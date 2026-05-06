@@ -1,5 +1,8 @@
 namespace Domain.Entities
 {
+    /// <summary>
+    /// Representa um pagamento realizado via PIX.
+    /// </summary>
     public class PagamentoPix : Pagamento
     {
         public string ChavePix { get; set; } = string.Empty;

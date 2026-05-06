@@ -1,0 +1,37 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.{cs,js,ts,jsx,tsx,html,css,json,md}]
+max_line_length = 120
+
+[*.cs]
+# Define o estilo do namespace: file_scoped (linha única)
+csharp_style_namespace_declarations = file_scoped
+
+# Garante que a chave do namespace comece em uma nova linha
+csharp_new_line_before_open_brace = namespaces, types, methods
+
+[*.cs]
+# Exigir comentários XML (///) em todos os métodos, classes e propriedades públicas
+dotnet_diagnostic.CS1591.severity = warning
+
+# Organização de "Using" (limpa o topo do código)
+dotnet_separate_import_directive_groups = true
+dotnet_sort_system_directives_first = true
+
+# Estilo de chaves (sempre na linha nova)
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+
+# Indentação de blocos
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+
