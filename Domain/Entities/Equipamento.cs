@@ -7,7 +7,7 @@ namespace Domain.Entities
     /// </summary>
     public abstract class Equipamento : IManutencao, IDiagnostico
     {
-        public int Id { get; set; }
+        public int Id { get; private set; }
 
         /// <summary>Descrição do problema ou serviço a ser realizado.</summary>
         public string Descricao { get; set; } = string.Empty;
@@ -16,12 +16,12 @@ namespace Domain.Entities
         public string NomeCliente { get; set; } = string.Empty;
 
         /// <summary>Data de entrada do equipamento no serviço.</summary>
-        public string DataEntrada { get; set; } = string.Empty;
+        public DateTime DataEntrada { get; set; }
 
         /// <summary>Status atual do equipamento.</summary>
         public string Status { get; set; } = string.Empty;
 
-        public Equipamento(int id, string descricao, string nomeCliente, string dataEntrada, string status)
+        public Equipamento(int id, string descricao, string nomeCliente, DateTime dataEntrada, string status)
         {
             Id = id;
             Descricao = descricao;
@@ -30,26 +30,10 @@ namespace Domain.Entities
             Status = status;
         }
 
-        /// <summary>Retorna o identificador do equipamento.</summary>
-        public int GetId()
-        {
-            return Id;
-        }
-
-        /// <summary>Atualiza o status do equipamento.</summary>
-        public void SetStatus(string status)
-        {
-            Status = status;
-        }
-
         /// <summary>Exibe informações básicas do equipamento.</summary>
-        public virtual void ExibirInfo()
+        public virtual string ExibirInfo()
         {
-            Console.WriteLine($"  ID:         {Id}");
-            Console.WriteLine($"  Cliente:    {NomeCliente}");
-            Console.WriteLine($"  Problema:   {Descricao}");
-            Console.WriteLine($"  Status:     {Status}");
-            Console.WriteLine($"  Entrada:    {DataEntrada}");
+          return $"ID: {Id} | Cliente: {NomeCliente} | Problema: {Descricao} | Status: {Status}";
         }
 
         /// <summary>Realiza a manutenção específica do equipamento.</summary>

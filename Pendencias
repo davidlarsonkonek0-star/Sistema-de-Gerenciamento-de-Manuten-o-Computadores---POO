@@ -10,5 +10,7 @@ Falta arrumar
         OrderServicoService
     )
 
-    fazer os testes rodarem certo
-    comflitos do sistema
+    Classes
+    (
+        Ordem e serviço, criar nova classe para pagamento
+    )
