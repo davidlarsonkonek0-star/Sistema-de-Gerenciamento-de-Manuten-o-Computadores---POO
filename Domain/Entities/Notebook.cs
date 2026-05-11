@@ -6,10 +6,16 @@ namespace Domain.Entities
     /// </summary>
     public class Notebook : Equipamento
     {
-        public string Marca { get; set; }
-        public string ModeloBateria { get; set; }
+        private string Marca { get; set; }
+        private string ModeloBateria { get; set; }
 
-        public Notebook(int id, string descricao, string nomeCliente, DateTime dataEntrada, string status, string marca, string modeloBateria)
+        public Notebook(int id, string descricao, string nomeCliente, string dataEntrada, string status, string marca, string modeloBateria)
+            : base(id, descricao, nomeCliente, dataEntrada, status)
+        {
+            Marca = marca;
+            ModeloBateria = modeloBateria;
+        }
+        public Notebook(int id, string descricao, string nomeCliente, string dataEntrada, string status, string marca, string modeloBateria)
             : base(id, descricao, nomeCliente, dataEntrada, status)
         {
             Marca = marca;
@@ -17,11 +23,27 @@ namespace Domain.Entities
         }
 
         /// <summary>Exibe informações detalhadas do notebook.</summary>
-        public override string ExibirInfo()
+        public override void ExibirInfo()
         {
-            return $"[Notebook] {base.ExibirInfo()} | Marca: {Marca} | Modelo da Bateria: {ModeloBateria}";
+            Console.WriteLine("  Tipo:       Notebook");
+            base.ExibirInfo();
+            Console.WriteLine($"  Marca:      {Marca}");
+            Console.WriteLine($"  Bateria:    {ModeloBateria}");
+        }
+        /// <summary>Exibe informações detalhadas do notebook.</summary>
+        public override void ExibirInfo()
+        {
+            Console.WriteLine("  Tipo:       Notebook");
+            base.ExibirInfo();
+            Console.WriteLine($"  Marca:      {Marca}");
+            Console.WriteLine($"  Bateria:    {ModeloBateria}");
         }
 
+        /// <summary>Realiza a manutenção do notebook.</summary>
+        public override void RealizarManutencao()
+        {
+            Console.WriteLine($"[Notebook - {NomeCliente}] Realizando limpeza interna e verificação de hardware...");
+        }
         /// <summary>Realiza a manutenção do notebook.</summary>
         public override void RealizarManutencao()
         {
@@ -33,7 +55,17 @@ namespace Domain.Entities
         {
             Console.WriteLine($"[Notebook - {NomeCliente}] Verificando bateria {ModeloBateria}... possível desgaste, troca recomendada.");
         }
+        /// <summary>Executa o diagnóstico do notebook.</summary>
+        public override void Diagnosticar()
+        {
+            Console.WriteLine($"[Notebook - {NomeCliente}] Verificando bateria {ModeloBateria}... possível desgaste, troca recomendada.");
+        }
 
+        /// <summary>Gera relatório resumido do notebook.</summary>
+        public override string GerarRelatorio()
+        {
+            return $"Notebook | Cliente: {NomeCliente} | Marca: {Marca} | Bateria: {ModeloBateria} | Status: {Status}";
+        }
         /// <summary>Gera relatório resumido do notebook.</summary>
         public override string GerarRelatorio()
         {

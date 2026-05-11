@@ -10,10 +10,5 @@ Falta arrumar
         OrderServicoService
     )
 
-    Classes
-    (
-        Ordem e serviço, criar nova classe para pagamento
-        Equipamento, evoluir status para enum
-        Analisar os consoles writelines das classe filhas de equipamento
-        Filhos de pagamento
-    )
+    fazer os testes rodarem certo
+    comflitos do sistema
