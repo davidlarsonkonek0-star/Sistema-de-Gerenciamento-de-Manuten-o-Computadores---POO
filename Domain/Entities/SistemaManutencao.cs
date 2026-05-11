@@ -1,5 +1,4 @@
 using System.Linq;
-using Domain.ValueObjects;
 
 namespace Domain.Entities
 {
@@ -16,7 +15,7 @@ namespace Domain.Entities
         public void CadastrarEquipamento(Equipamento equipamento)
         {
             equipamento.Id = Equipamentos.Count + 1;
-            equipamento.DataEntrada = DateTime.Now.ToString("yyyy-MM-dd");
+            equipamento.DataEntrada = DateTime.Now;
             Equipamentos.Add(equipamento);
             Console.WriteLine($"Equipamento cadastrado: {equipamento.Descricao} (ID {equipamento.Id}).");
         }
