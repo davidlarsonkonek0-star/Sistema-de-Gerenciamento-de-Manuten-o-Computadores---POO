@@ -6,7 +6,12 @@ namespace Domain.Entities
     public class Tecnico : Pessoa
     {
         /// <summary>Área de especialidade do técnico</summary>
-        public string? Especialidade { get; set; }
+        public string Especialidade { get; set; } = string.Empty;
+
+        public Tecnico (string id, string nome, string especialidade) : base(id, nome)
+        {
+            Especialidade = especialidade;
+        }
 
         /// <summary>Lista de ordens de serviço atribuídas ao técnico</summary>
         public List<OrdemServico> Ordens { get; set; } = new();

@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 using Domain.Interface;
 
 namespace Domain.Entities
@@ -16,12 +18,12 @@ namespace Domain.Entities
         public string NomeCliente { get; set; } = string.Empty;
 
         /// <summary>Data de entrada do equipamento no serviço.</summary>
-        public string DataEntrada { get; set; } = string.Empty;
+        public DateTime DataEntrada { get; set; }
 
         /// <summary>Status atual do equipamento.</summary>
         public string Status { get; set; } = string.Empty;
 
-        public Equipamento(int id, string descricao, string nomeCliente, string dataEntrada, string status)
+        public Equipamento(int id, string descricao, string nomeCliente, DateTime dataEntrada, string status)
         {
             Id = id;
             Descricao = descricao;
@@ -30,26 +32,17 @@ namespace Domain.Entities
             Status = status;
         }
 
-        /// <summary>Retorna o identificador do equipamento.</summary>
-        public int GetId()
+        /// <summary>Exibe informações básicas do equipamento.</summary>
+        public virtual string ExibirInfo()
         {
-            return Id;
+          return $"ID: {Id} | Cliente: {NomeCliente} | Problema: {Descricao} | Status: {Status}";
         }
 
-        /// <summary>Atualiza o status do equipamento.</summary>
         public void SetStatus(string status)
         {
+            if (string.IsNullOrWhiteSpace(status))
+                throw new ArgumentException("Status invalido");
             Status = status;
-        }
-
-        /// <summary>Exibe informações básicas do equipamento.</summary>
-        public virtual void ExibirInfo()
-        {
-            Console.WriteLine($"  ID:         {Id}");
-            Console.WriteLine($"  Cliente:    {NomeCliente}");
-            Console.WriteLine($"  Problema:   {Descricao}");
-            Console.WriteLine($"  Status:     {Status}");
-            Console.WriteLine($"  Entrada:    {DataEntrada}");
         }
 
         /// <summary>Realiza a manutenção específica do equipamento.</summary>
