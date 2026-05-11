@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿﻿using Domain.Entities;
 class Program
 {
     static SistemaManutencao sistema = new SistemaManutencao();
@@ -99,28 +99,28 @@ class Program
                 string marca = Console.ReadLine()!;
                 Console.Write("  Modelo da bateria: ");
                 string bateria = Console.ReadLine()!;
-                sistema.CadastrarEquipamento(CriarNotebook(id, descricao, nomeCliente, dataEntrada, status, marca, bateria));
+                sistema.CadastrarEquipamento(new Notebook(id, descricao, nomeCliente, dataEntrada, status, marca, bateria));
                 break;
             case 2:
                 Console.Write("  Tipo de gabinete: ");
                 string tipoGabinete = Console.ReadLine()!;
                 Console.Write("  Tem fonte redundante? (s/n): ");
                 bool temFonteRedundante = Console.ReadLine()!.ToLower() == "s";
-                sistema.CadastrarEquipamento(CriarDesktop(id, descricao, nomeCliente, dataEntrada, status, tipoGabinete, temFonteRedundante));
+                sistema.CadastrarEquipamento(new Desktop(id, descricao, nomeCliente, dataEntrada, status, tipoGabinete, temFonteRedundante));
                 break;
             case 3:
                 Console.Write("  Número de racks: ");
                 int racks = int.Parse(Console.ReadLine()!);
                 Console.Write("  Criticidade (Alta/Média/Baixa): ");
                 string criticidade = Console.ReadLine()!;
-                sistema.CadastrarEquipamento(CriarServidor(id, descricao, nomeCliente, dataEntrada, status, racks, criticidade));
+                sistema.CadastrarEquipamento(new Servidor(id, descricao, nomeCliente, dataEntrada, status, racks, criticidade));
                 break;
             case 4:
                 Console.Write("  Tipo de impressão (Laser/Jato de Tinta): ");
                 string tipoImpressao = Console.ReadLine()!;
                 Console.Write("  Nível de toner (%): ");
                 double toner = double.Parse(Console.ReadLine()!);
-                sistema.CadastrarEquipamento(CriarImpressora(id, descricao, nomeCliente, dataEntrada, status, tipoImpressao, toner));
+                sistema.CadastrarEquipamento(new Impressora(id, descricao, nomeCliente, dataEntrada, status, tipoImpressao, toner));
                 break;
             default:
                 Console.WriteLine("\n  Tipo inválido!");
