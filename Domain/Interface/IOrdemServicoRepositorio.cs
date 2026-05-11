@@ -5,7 +5,7 @@ namespace Domain.Interface
     /// <summary>
     /// Repositório para ordens de serviço.
     /// </summary>
-    public interface IOrdemServicoRepository
+    public interface IOrdemServicoRepositorio
     {
         /// <summary>Adiciona uma ordem ao repositório.</summary>
         void Add(OrdemServico ordem);
