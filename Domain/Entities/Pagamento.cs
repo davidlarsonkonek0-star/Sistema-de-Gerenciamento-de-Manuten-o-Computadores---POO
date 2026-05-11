@@ -8,15 +8,9 @@ namespace Domain.Entities
     /// </summary>
     public abstract class Pagamento : IPagamento
     {
-        public string Id { get; private set; } = Guid.NewGuid().ToString();
-        public string Pagador { get; protected set; } = string.Empty;
-        public Money Valor { get; protected set; } = new Money(0, "BRL");
-
-        public Pagamento (string pagador, Money valor)
-        {
-            Pagador = pagador;
-            Valor = valor;
-        }
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string Pagador { get; set; } = string.Empty;
+        public Money Valor { get; set; } = new Money(0, "BRL");
 
         public abstract void Processar();
         public abstract string ExibirResumo();

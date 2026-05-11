@@ -6,10 +6,16 @@ namespace Domain.Entities
     /// </summary>
     public class Desktop : Equipamento
     {
-        public string TipoGabinete { get; set; }
-        public bool TemFonteRedundante { get; set; }
+        private string TipoGabinete { get; set; }
+        private bool TemFonteRedundante { get; set; }
 
-        public Desktop(int id, string descricao, string nomeCliente, DateTime dataEntrada, string status, string tipoGabinete, bool temFonteRedundante)
+        public Desktop(int id, string descricao, string nomeCliente, string dataEntrada, string status, string tipoGabinete, bool temFonteRedundante)
+            : base(id, descricao, nomeCliente, dataEntrada, status)
+        {
+            TipoGabinete = tipoGabinete;
+            TemFonteRedundante = temFonteRedundante;
+        }
+        public Desktop(int id, string descricao, string nomeCliente, string dataEntrada, string status, string tipoGabinete, bool temFonteRedundante)
             : base(id, descricao, nomeCliente, dataEntrada, status)
         {
             TipoGabinete = tipoGabinete;
@@ -17,11 +23,27 @@ namespace Domain.Entities
         }
 
         /// <summary>Exibe informações detalhadas do desktop.</summary>
-        public override string ExibirInfo()
+        public override void ExibirInfo()
         {
-          return $"[Desktop] {base.ExibirInfo()} | Gabinete:{TipoGabinete} | Fonte redundante: {TemFonteRedundante}";
+            Console.WriteLine("  Tipo:       Desktop");
+            base.ExibirInfo();
+            Console.WriteLine($"  Gabinete:   {TipoGabinete}");
+            Console.WriteLine($"  Fonte redundante: {TemFonteRedundante}");
+        }
+        /// <summary>Exibe informações detalhadas do desktop.</summary>
+        public override void ExibirInfo()
+        {
+            Console.WriteLine("  Tipo:       Desktop");
+            base.ExibirInfo();
+            Console.WriteLine($"  Gabinete:   {TipoGabinete}");
+            Console.WriteLine($"  Fonte redundante: {TemFonteRedundante}");
         }
 
+        /// <summary>Realiza a manutenção do desktop.</summary>
+        public override void RealizarManutencao()
+        {
+            Console.WriteLine($"[Desktop - {NomeCliente}] Verificando fonte de alimentação e conexões internas...");
+        }
         /// <summary>Realiza a manutenção do desktop.</summary>
         public override void RealizarManutencao()
         {
@@ -33,7 +55,17 @@ namespace Domain.Entities
         {
             Console.WriteLine($"[Desktop - {NomeCliente}] Gabinete {TipoGabinete}. Verificando componentes...");
         }
+        /// <summary>Executa o diagnóstico do desktop.</summary>
+        public override void Diagnosticar()
+        {
+            Console.WriteLine($"[Desktop - {NomeCliente}] Gabinete {TipoGabinete}. Verificando componentes...");
+        }
 
+        /// <summary>Gera relatório resumido do desktop.</summary>
+        public override string GerarRelatorio()
+        {
+            return $"Desktop | Cliente: {NomeCliente} | Gabinete: {TipoGabinete} | Status: {Status}";
+        }
         /// <summary>Gera relatório resumido do desktop.</summary>
         public override string GerarRelatorio()
         {

@@ -6,21 +6,17 @@ namespace Domain.Entities
     /// </summary>
     public class Cliente : Pessoa
     {
-        public string Telefone { get; set; } = string.Empty;
-
-        public Cliente (string id, string nome, string telefone) :base(id, nome)
-        {
-            Telefone = telefone;
-        }
+        public string? Telefone { get; set; }
 
     /// <summary>Lista de equipamentos do cliente</summary>
         public List<Equipamento> Equipamentos { get; set; } = new();
 
-
         /// <summary>
         /// Adiciona um equipamento à lista do cliente
         /// </summary>
-
+        /// <summary>
+        /// Adiciona um equipamento à lista do cliente.
+        /// </summary>
         public void AdicionarEquipamento(Equipamento equipamento)
         {
             if (equipamento == null)
@@ -46,7 +42,6 @@ namespace Domain.Entities
         /// <summary>
         /// Lista todos os equipamentos do cliente formatados
         /// </summary>
-
         public void ListarEquipamentos()
         {
             if (!Equipamentos.Any())
@@ -58,7 +53,7 @@ namespace Domain.Entities
             Console.WriteLine($"\n=== Equipamentos do Cliente {Nome} ===");
             foreach (var equipamento in Equipamentos)
             {
-                Console.WriteLine(equipamento.ExibirInfo());
+                equipamento.ExibirInfo();
             }
         }
 

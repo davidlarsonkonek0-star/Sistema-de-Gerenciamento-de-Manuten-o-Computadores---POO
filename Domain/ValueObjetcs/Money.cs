@@ -10,9 +10,6 @@ namespace Domain.ValueObjects
 
         public Money(long amountMinor, string currency)
         {
-            if (string.IsNullOrWhiteSpace(currency))
-                throw new ArgumentException("Não pode ser vazio");
-
             AmountMinor = amountMinor;
             Currency = currency;
         }

@@ -9,10 +9,10 @@ namespace Domain.Services
     /// </summary>
     public class OrdemServicoService
     {
-        private readonly IOrdemServicoRepositorio _repositorio;
+        private readonly IOrdemServicoRepository _repositorio;
 
         /// <summary>Inicializa o serviço com um repositório de ordens.</summary>
-        public OrdemServicoService(IOrdemServicoRepositorio repositorio)
+        public OrdemServicoService(IOrdemServicoRepository repositorio)
         {
             _repositorio = repositorio;
         }
@@ -21,7 +21,7 @@ namespace Domain.Services
         public void AbrirOrdem(OrdemServico ordem)
         {
             ordem.Status = "Aberta";
-            ordem.DataEntrada = DateTime.Now;
+            ordem.DataEntrada = DateTime.Now.ToString("yyyy-MM-dd");
             _repositorio.Add(ordem);
         }
 
