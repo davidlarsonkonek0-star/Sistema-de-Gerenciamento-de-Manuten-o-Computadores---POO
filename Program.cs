@@ -88,7 +88,7 @@ class Program
         Console.Write(" Descrição do problema: ");
         string descricao = Console.ReadLine()!;
 
-        string dataEntrada = DateTime.Now.ToString("dd/MM/yyyy");
+        DateTime dataEntrada = DateTime.Now;
         string status = "Aguardando";
         int id = sistema.GetProximoId();
 
