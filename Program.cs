@@ -11,7 +11,7 @@ class Program
         {
             Console.Clear();
             Console.WriteLine(" ╔══════════════════════════════════════════╗");
-            Console.WriteLine(" ║ SISTEMA DE MANUTENÇÃO DE COMPUTADORES ║");
+            Console.WriteLine(" ║  SISTEMA DE MANUTENÇÃO DE COMPUTADORES   ║");
             Console.WriteLine(" ╚══════════════════════════════════════════╝");
             Console.WriteLine();
             Console.WriteLine(" 1 - Cadastrar Equipamento");
@@ -71,7 +71,7 @@ class Program
     {
         Console.Clear();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
-        Console.WriteLine(" ║ CADASTRAR EQUIPAMENTO ║");
+        Console.WriteLine(" ║          CADASTRAR EQUIPAMENTO           ║");
         Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
 
         Console.WriteLine(" Tipo:");
@@ -132,7 +132,7 @@ class Program
     {
         Console.Clear();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
-        Console.WriteLine(" ║ BUSCAR POR ID ║");
+        Console.WriteLine(" ║              BUSCAR POR ID               ║");
         Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
 
         Console.Write(" ID do equipamento: ");
@@ -154,7 +154,7 @@ class Program
     {
         Console.Clear();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
-        Console.WriteLine(" ║ ALTERAR STATUS ║");
+        Console.WriteLine(" ║               ALTERAR STATUS             ║");
         Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
 
         Console.Write(" ID do equipamento: ");
@@ -185,7 +185,7 @@ class Program
     {
         Console.Clear();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
-        Console.WriteLine(" ║ REMOVER EQUIPAMENTO ║");
+        Console.WriteLine(" ║             REMOVER EQUIPAMENTO          ║");
         Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
 
         Console.Write(" ID do equipamento: ");
