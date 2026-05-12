@@ -1,6 +1,4 @@
-﻿﻿using System.IO.Compression;
-
-using Domain.Entities;
+﻿﻿using Domain.Entities;
 class Program
 {
     static SistemaManutencao sistema = new SistemaManutencao();
