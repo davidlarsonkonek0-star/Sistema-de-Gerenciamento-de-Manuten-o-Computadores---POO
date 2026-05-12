@@ -66,7 +66,8 @@ class Program
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
         Console.WriteLine(" ║              ACESSO CLIENTE              ║");
-        Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
+        Console.WriteLine();
 
         Console.Write(" Nome do cliente: ");
         string nome = Console.ReadLine()!;
@@ -94,7 +95,7 @@ class Program
             Console.Clear();
             ExibirTitulo();
             Console.WriteLine("  ╔══════════════════════════════════════════╗");
-            Console.WriteLine($" ║     BEM-VINDO, {clienteLogado!.Nome}!     ║");
+            Console.WriteLine($" ║     BEM-VINDO, {clienteLogado!.Nome}!    ║");
             Console.WriteLine("  ╚══════════════════════════════════════════╝");
             Console.WriteLine();
             Console.WriteLine(" 1 - Cadastrar Equipamento");
@@ -149,7 +150,7 @@ class Program
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
         Console.WriteLine(" ║        CADASTRAR NOVO EQUIPAMENTO        ║");
-        Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
         Console.WriteLine();
         Console.Write("  Tipo do equipamento: ");
         Console.WriteLine(" 1 - Notebook");
@@ -202,7 +203,8 @@ class Program
     ExibirTitulo();
     Console.WriteLine(" ╔══════════════════════════════════════════╗");
     Console.WriteLine(" ║            MEUS EQUIPAMENTOS             ║");
-    Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+    Console.WriteLine(" ╚══════════════════════════════════════════╝");
+    Console.WriteLine();
 
     if (clienteLogado!.Equipamentos.Count == 0)
     {
@@ -225,7 +227,8 @@ class Program
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
         Console.WriteLine(" ║            REALIZAR PAGAMENTO            ║");
-        Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
+        Console.WriteLine();
 
         var ordensFinalizadas = sistema.Ordens
         .Where(o => o.Status == "Finalizado" && o.Pagamento == null)
@@ -303,7 +306,8 @@ class Program
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
         Console.WriteLine(" ║          MEU RELATÓRIO DE SERVIÇOS       ║");
-        Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
+        Console.WriteLine();
 
         var ordensCliente = sistema.Ordens
             .Where(o => o.Id > 0)
@@ -363,7 +367,7 @@ class Program
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
         Console.WriteLine(" ║              ACESSO TÉCNICO              ║");
-        Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
         Console.WriteLine();
 
         Console.Write(" Nome do técnico: ");
@@ -393,7 +397,7 @@ class Program
             Console.Clear();
             ExibirTitulo();
             Console.WriteLine(" ╔══════════════════════════════════════════╗");
-            Console.WriteLine($"║     BEM-VINDO, {tecnicoLogado!.Nome}!     ║");
+            Console.WriteLine($"║     BEM-VINDO, {tecnicoLogado!.Nome}!    ║");
             Console.WriteLine(" ╚══════════════════════════════════════════╝");
             Console.WriteLine();
             Console.WriteLine(" 1 - Ver Equipamentos Novos para Atendimento");
@@ -459,7 +463,8 @@ class Program
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
         Console.WriteLine(" ║   EQUIPAMENTOS NOVOS PARA ATENDIMENTO    ║");
-        Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
+        Console.WriteLine();
 
         var equipamentosSemOrdem = sistema.Equipamentos
             .Where(e => !sistema.Ordens.Any(o => o.Id == e.Id && o.Status != "Pendente"))
@@ -486,7 +491,8 @@ class Program
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
         Console.WriteLine(" ║          ABRIR ORDEM DE SERVIÇO          ║");
-        Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
+        Console.WriteLine();
 
         var equipamentosSemOrdem = sistema.Equipamentos
             .Where(e => !sistema.Ordens.Any(o => o.Id == e.Id))
@@ -545,7 +551,8 @@ class Program
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
         Console.WriteLine(" ║         MINHAS ORDENS DE SERVIÇO         ║");
-        Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
+        Console.WriteLine();
 
         var ordensTecnico = sistema.Ordens
             .Where(o => o.Id > 0)
@@ -581,7 +588,8 @@ class Program
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
         Console.WriteLine(" ║           DIAGNOSTICAR SERVIÇO           ║");
-        Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
+        Console.WriteLine();
 
         var ordensEmAndamento = tecnicoLogado!.Ordens
             .Where(o => o.Status == "Finalizada" || o.Status == "Em Execução")
@@ -632,7 +640,8 @@ class Program
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
         Console.WriteLine(" ║            EXECUTAR SERVIÇO              ║");
-        Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
+        Console.WriteLine();
 
         var ordensAbertas = tecnicoLogado!.Ordens
             .Where(o => o.Status == "Finalizada" || o.Status == "Em Execução")
@@ -676,7 +685,8 @@ class Program
             ExibirTitulo();
             Console.WriteLine(" ╔══════════════════════════════════════════╗");
             Console.WriteLine(" ║         FINALIZAR ORDEM DE SERVIÇO       ║");
-            Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+            Console.WriteLine(" ╚══════════════════════════════════════════╝");
+            Console.WriteLine();
 
         var ordensEmExecucao = tecnicoLogado!.Ordens
             .Where(o => o.Status == "Em Execução")
@@ -717,7 +727,8 @@ class Program
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
         Console.WriteLine(" ║         RELATÓRIO TÉCNICO DE SERVIÇOS    ║");
-        Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
+        Console.WriteLine();
 
         var ordensTecnico = tecnicoLogado!.Ordens;
 
@@ -749,7 +760,8 @@ class Program
     {
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
         Console.WriteLine(" ║        SISTEMA DE MANUTENÇÃO DE PC       ║");
-        Console.WriteLine(" ╚══════════════════════════════════════════╝\n");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
+        Console.WriteLine();
     }
 
     static void AguardarEnter()
