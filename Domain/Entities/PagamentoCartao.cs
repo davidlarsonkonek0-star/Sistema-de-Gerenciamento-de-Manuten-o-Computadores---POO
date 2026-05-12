@@ -7,7 +7,7 @@ namespace Domain.Entities
     /// </summary>
     public class PagamentoCartao : Pagamento
     {
-        public string NumeroMascarado { get; set; } = string.Empty;
+        public string NumeroMascarado { get; private set; } = string.Empty;
 
         public PagamentoCartao (string pagador, decimal valor, string numeromascarado) : base (pagador, new Money((long) Math.Round (valor * 100), "BRL"))
         {
