@@ -1,19 +1,5 @@
 Falta arrumar
 
-    todas a classes e manter um padrão
-    (
-        Revisar todas classes
-    )
+program.cs pra melhorar o fluxo e funcionamento e criar as listas de cada ordem de serviço , equipamento e pagamentos
 
-    Service
-    (
-        OrderServicoService
-    )
-
-    Classes
-    (
-        Ordem e serviço, criar nova classe para pagamento
-        Equipamento, evoluir status para enum
-        Analisar os consoles writelines das classe filhas de equipamento
-        Filhos de pagamento
-    )
+arrumar o pagamento em especie pra usar o cash ao invez do money atualizando a classe pagamento
