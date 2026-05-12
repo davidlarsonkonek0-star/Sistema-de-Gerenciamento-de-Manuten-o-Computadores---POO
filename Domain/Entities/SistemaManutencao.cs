@@ -95,7 +95,7 @@ namespace Domain.Entities
         public void AbrirOrdem(OrdemServico ordem)
         {
             ordem.Id = Ordens.Count + 1;
-            ordem.DataEntrada = DateTime.Now.ToString("yyyy-MM-dd");
+            ordem.DataEntrada = DateTime.Now;
             ordem.Status = "Aberta";
             Ordens.Add(ordem);
             Console.WriteLine($"Ordem de serviço aberta: {ordem.Id}.");
