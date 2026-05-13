@@ -151,6 +151,7 @@ class Program
         Console.WriteLine(" ╚══════════════════════════════════════════╝");
         Console.WriteLine();
         Console.Write("  Tipo do equipamento: ");
+        Console.WriteLine();
         Console.WriteLine(" 1 - Notebook");
         Console.WriteLine(" 2 - Desktop");
         Console.WriteLine(" 3 - Servidor");
@@ -315,8 +316,6 @@ class Program
         Console.WriteLine($" Equipamentos Cadastrados: {clienteLogado!.Equipamentos.Count}\n");
         Console.WriteLine();
 
-
-        Console.WriteLine(" Equipamentos:");
         foreach (var eq in clienteLogado!.Equipamentos)
         {
             var orden = ordensCliente.FirstOrDefault(o => o.Id == eq.Id);
@@ -590,7 +589,7 @@ class Program
         Console.WriteLine();
 
         var ordensEmAndamento = tecnicoLogado!.Ordens
-            .Where(o => o.Status == "Finalizada" || o.Status == "Em Execução")
+            .Where(o => o.Status == "Finalizada" || o.Status == "Em Execução") ///verificar funcionamento///
             .ToList();
 
         if (ordensEmAndamento.Count == 0)
@@ -642,7 +641,7 @@ class Program
         Console.WriteLine();
 
         var ordensAbertas = tecnicoLogado!.Ordens
-            .Where(o => o.Status == "Finalizada" || o.Status == "Em Execução")
+            .Where(o => o.Status == "Finalizada" || o.Status == "Em Execução") ///verificar funcionamento///
             .ToList();
 
         if (ordensAbertas.Count == 0)
