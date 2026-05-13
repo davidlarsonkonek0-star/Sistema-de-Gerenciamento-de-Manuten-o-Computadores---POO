@@ -885,7 +885,7 @@ class Program
     static void ExibirMensagemBemVindo(string nome)
     {
         string texto = $"BEM-VINDO, {nome}!";
-        int espacoTotalDisponivel = 40;
+        int espacoTotalDisponivel = 42;
         int espacoNecessario = espacoTotalDisponivel - texto.Length;
         int espacoEsquerda = espacoNecessario / 2;
         int espacoDireita = espacoNecessario - espacoEsquerda;
