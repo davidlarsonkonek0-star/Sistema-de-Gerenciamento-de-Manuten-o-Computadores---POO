@@ -230,7 +230,7 @@ class Program
         Console.WriteLine();
 
         var ordensFinalizadas = sistema.Ordens
-        .Where(o => o.Status == "Finalizado" && o.Pagamento == null)
+        .Where(o => o.Status == "Finalizada" && o.Pagamento == null)
         .ToList();
 
         if (ordensFinalizadas.Count == 0)
@@ -398,7 +398,7 @@ class Program
             Console.WriteLine(" ╚══════════════════════════════════════════╝");
             Console.WriteLine();
             Console.WriteLine(" 1 - Ver Equipamentos Novos para Atendimento");
-            Console.WriteLine(" 2 - Abrir Ordem de Serviço e Atualizar Status");
+            Console.WriteLine(" 2 - Abrir Ordem ou Alterar Status");
             Console.WriteLine(" 3 - Ver Minhas Ordens de Serviço");
             Console.WriteLine(" 4 - Executar Diagnóstico");
             Console.WriteLine(" 5 - Executar Serviço");
@@ -421,7 +421,7 @@ class Program
                     TecnicoVerEquipamentosNovos();
                     break;
                 case 2:
-                    TecnicoAbrirOrdem();
+                    TecnicoAbrirOuAlterarOrdem();
                     break;
                 case 3:
                     TecnicoVerOrdens();
@@ -482,6 +482,35 @@ class Program
         }
     }
 
+    static void TecnicoAbrirOuAlterarOrdem()
+    {
+        Console.Clear();
+        ExibirTitulo();
+        Console.WriteLine(" ╔══════════════════════════════════════════╗");
+        Console.WriteLine(" ║      ABRIR OU ALTERAR ORDEM DE SERVIÇO   ║");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
+        Console.WriteLine();
+        Console.WriteLine(" 1 - Abrir Nova Ordem de Serviço");
+        Console.WriteLine(" 2 - Alterar Status de Ordem Existente");
+        Console.WriteLine(" 0 - Voltar");
+        Console.WriteLine();
+        Console.Write(" Escolha: ");
+
+        if (!int.TryParse(Console.ReadLine(), out int opcao) || opcao < 0 || opcao > 2)
+        {
+            Console.WriteLine("\n Opção inválida!");
+            AguardarEnter();
+            return;
+        }
+
+        if (opcao == 0)
+            return;
+        else if (opcao == 1)
+            TecnicoAbrirOrdem();
+        else
+            TecnicoAlterarStatusOrdem();
+    }
+
     static void TecnicoAbrirOrdem()
     {
         Console.Clear();
@@ -534,12 +563,98 @@ class Program
             Id = equipamentoSelecionado.Id,
             Servico = descricaoServico,
             ValorTotal = new Domain.ValueObjects.Money((long) Math.Round (valorOrcamento * 100), "BRL"),
-            Status = "Normal"
+            Status = "Aberta"
         };
 
         sistema.AbrirOrdem(ordem);
         tecnicoLogado!.AtribuirOrdem(ordem);
         Console.WriteLine("\n Ordem de Serviço Aberta com Sucesso! #{ordem.Id}");
+    }
+
+    static void TecnicoAlterarStatusOrdem()
+    {
+        Console.Clear();
+        ExibirTitulo();
+        Console.WriteLine(" ╔══════════════════════════════════════════╗");
+        Console.WriteLine(" ║       ALTERAR STATUS DA ORDEM DE SERVIÇO ║");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
+        Console.WriteLine();
+
+        if (tecnicoLogado!.Ordens.Count == 0)
+        {
+            Console.WriteLine(" Você não possui ordens de serviço para alterar.");
+            AguardarEnter();
+            return;
+        }
+
+        Console.WriteLine(" Suas Ordens de Serviço:");
+        for (int i = 0; i < tecnicoLogado!.Ordens.Count; i++)
+        {
+            Console.WriteLine($" {i + 1} - Ordem ID: {tecnicoLogado.Ordens[i].Id} | Status: {tecnicoLogado.Ordens[i].Status}");
+            Console.WriteLine($"     Serviço: {tecnicoLogado.Ordens[i].Servico}");
+            Console.WriteLine();
+        }
+
+        Console.Write(" Escolha a ordem para alterar: ");
+        if (!int.TryParse(Console.ReadLine(), out int idOrdem) || idOrdem < 1 || idOrdem > tecnicoLogado.Ordens.Count)
+        {
+            Console.WriteLine("\n Opção inválida!");
+            AguardarEnter();
+            return;
+        }
+
+        var ordem = tecnicoLogado.Ordens[idOrdem - 1];
+
+        Console.WriteLine($"\n Status Atual: {ordem.Status}");
+        Console.WriteLine("\n Novo Status:");
+        Console.WriteLine(" 1 - Aberta");
+        Console.WriteLine(" 2 - Diagnosticada");
+        Console.WriteLine(" 3 - Em Execução");
+        Console.WriteLine(" 4 - Finalizada");
+        Console.WriteLine(" 5 - Cancelada (Não Necessária)");
+        Console.WriteLine(" 0 - Voltar");
+        Console.Write("\n Escolha: ");
+
+        if (!int.TryParse(Console.ReadLine(), out int novoStatus) || novoStatus < 0 || novoStatus > 5)
+        {
+            Console.WriteLine("\n Opção inválida!");
+            AguardarEnter();
+            return;
+        }
+
+        if (novoStatus == 0)
+            return;
+
+        try
+        {
+            string statusAnterior = ordem.Status;
+
+            switch (novoStatus)
+            {
+                case 1:
+                    ordem.Status = "Aberta";
+                    break;
+                case 2:
+                    ordem.Status = "Diagnosticada";
+                    break;
+                case 3:
+                    ordem.Status = "Em Execução";
+                    break;
+                case 4:
+                    ordem.Status = "Finalizada";
+                    break;
+                case 5:
+                    ordem.Status = "Cancelada";
+                    break;
+            }
+
+            Console.WriteLine($"\n Status da ordem {ordem.Id} alterado com sucesso!");
+            Console.WriteLine($" De: {statusAnterior} ┈┈> Para: {ordem.Status}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"\n Erro ao alterar status: {ex.Message}");
+        }
     }
 
     static void TecnicoVerOrdens()
@@ -589,12 +704,12 @@ class Program
         Console.WriteLine();
 
         var ordensEmAndamento = tecnicoLogado!.Ordens
-            .Where(o => o.Status == "Finalizada" || o.Status == "Em Execução") ///verificar funcionamento///
+            .Where(o => o.Status == "Aberta")
             .ToList();
 
         if (ordensEmAndamento.Count == 0)
         {
-            Console.WriteLine(" Você não possui ordens de serviço em andamento para diagnosticar.");
+            Console.WriteLine(" Você não possui ordens de serviço abertas para diagnosticar.");
             AguardarEnter();
             return;
         }
@@ -607,7 +722,7 @@ class Program
             Console.WriteLine();
         }
 
-        Console.Write("\n Escolha ama ordem de serviço para diagnosticar: ");
+        Console.Write("\n Escolha uma ordem de serviço para diagnosticar: ");
         if (!int.TryParse(Console.ReadLine(), out int idOrdem) || idOrdem < 1 || idOrdem > ordensEmAndamento.Count)
         {
             Console.WriteLine("\n Opção inválida!");
@@ -621,7 +736,9 @@ class Program
         if (equipamento != null)
         {
             tecnicoLogado!.RealizarDiagnostico(equipamento!);
+            ordem.Status = "Diagnosticada";
             Console.WriteLine("\n Diagnóstico realizado com Sucesso!");
+            Console.WriteLine($" Status da ordem atualizado para: {ordem.Status}");
             return;
         }
         else
@@ -641,12 +758,12 @@ class Program
         Console.WriteLine();
 
         var ordensAbertas = tecnicoLogado!.Ordens
-            .Where(o => o.Status == "Finalizada" || o.Status == "Em Execução") ///verificar funcionamento///
+            .Where(o => o.Status == "Diagnosticada")
             .ToList();
 
         if (ordensAbertas.Count == 0)
         {
-            Console.WriteLine(" Você não possui ordens de serviço em andamento para executar.");
+            Console.WriteLine(" Você não possui ordens de serviço diagnosticadas para executar.");
             AguardarEnter();
             return;
         }
@@ -668,30 +785,38 @@ class Program
         }
 
         var ordem = ordensAbertas[idOrdem - 1];
-        ordem.Status = "Em Execução";
+        var equipamento = sistema.BuscarPorId(ordem.Id);
 
-        Console.WriteLine($"\n Serviço em execução {ordem.Servico}...");
-        System.Threading.Thread.Sleep(1500); /// Simula o tempo de execução do serviço ///
-
-        Console.WriteLine("\n Serviço executado com sucesso!");
+        if (equipamento != null)
+        {
+            ordem.Status = "Em Execução";
+            Console.WriteLine($"\n Serviço em execução {ordem.Servico}...");
+            tecnicoLogado!.RealizarServico(equipamento);
+            System.Threading.Thread.Sleep(1500); /// Simula o tempo de execução do serviço ///
+            Console.WriteLine("\n Serviço executado com sucesso!");
+        }
+        else
+        {
+            Console.WriteLine("\n Erro: Equipamento não encontrado para executar o serviço.");
+        }
     }
 
     static void TecnicoFinalizarOrdem()
     {
-            Console.Clear();
-            ExibirTitulo();
-            Console.WriteLine(" ╔══════════════════════════════════════════╗");
-            Console.WriteLine(" ║         FINALIZAR ORDEM DE SERVIÇO       ║");
-            Console.WriteLine(" ╚══════════════════════════════════════════╝");
-            Console.WriteLine();
+        Console.Clear();
+        ExibirTitulo();
+        Console.WriteLine(" ╔══════════════════════════════════════════╗");
+        Console.WriteLine(" ║         FINALIZAR ORDEM DE SERVIÇO       ║");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
+        Console.WriteLine();
 
         var ordensEmExecucao = tecnicoLogado!.Ordens
-            .Where(o => o.Status == "Em Execução")
+            .Where(o => o.Status == "Em Execução" || o.Status == "Diagnosticada")
             .ToList();
 
         if (ordensEmExecucao.Count == 0)
         {
-            Console.WriteLine(" Você não possui ordens de serviço em execução para finalizar.");
+            Console.WriteLine(" Você não possui ordens de serviço para finalizar.");
             AguardarEnter();
             return;
         }
@@ -713,7 +838,7 @@ class Program
         }
 
         var ordem = ordensEmExecucao[idOrdem - 1];
-        ordem.Status = "Finalizado";
+        ordem.Status = "Finalizada";
 
         Console.WriteLine($"\n Ordem de Serviço #{ordem.Id} Finalizada com Sucesso!");
     }
@@ -746,7 +871,7 @@ class Program
             Console.WriteLine();
         }
 
-        var ordensFinalizadas = ordensTecnico.Count(o => o.Status == "Finalizado");
+        var ordensFinalizadas = ordensTecnico.Count(o => o.Status == "Finalizada");
         var valorTotalServicos = ordensTecnico.Sum(o => o.ValorTotal.ToDecimal());
 
         Console.WriteLine($" Total de Ordens Finalizadas: {ordensFinalizadas}");

@@ -40,8 +40,24 @@ namespace Domain.Entities
             DataEntrada = DateTime.Now;
         }
 
+        public void Diagnosticar()
+        {
+            if (Status != "Aberta")
+                throw new InvalidOperationException("A ordem deve estar em status 'Aberta' para diagnosticar.");
+            Status = "Diagnosticada";
+        }
+
+        public void Executar()
+        {
+            if (Status != "Diagnosticada")
+                throw new InvalidOperationException("A ordem deve estar em status 'Diagnosticada' para executar.");
+            Status = "Em Execução";
+        }
+
         public void Finalizar()
         {
+            if (Status != "Em Execução" && Status != "Diagnosticada")
+                throw new InvalidOperationException("A ordem deve estar em status 'Em Execução' ou 'Diagnosticada' para finalizar.");
             Status = "Finalizada";
         }
 

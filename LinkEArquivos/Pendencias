@@ -1,8 +1,10 @@
-Falta arrumar
+///Falta arrumar///
+program.cs pra melhorar o fluxo e funcionamento e criar as listas de cada ordem de serviço , equipamento e pagamentos ///feito///
+arrumar as caixas pra ficar certo com os nomes diferentes e arruma o fluxo do tecnico
+ pra alterar os status e conseguir fazer o diagnostico e manutenção //feito///
 
-program.cs pra melhorar o fluxo e funcionamento e criar as listas de cada ordem de serviço , equipamento e pagamentos///feito///
-agora arrumar as caixas pra ficar certo com os nomes diferentes e arruma o fluxo do tecnico
- pra alterar os status e conseguir fazer o diagnostico e manutenção
+arrumar o pagamento em especie pra usar o cash ao invez do money atualizando a classe pagamento ///feito///
+usar Cash em PagamentoEspecie sem alterar muito o sistema ///feito///
 
-arrumar o pagamento em especie pra usar o cash ao invez do money atualizando a classe pagamento///feito///
-fiz chamando direto o cash da pra mudar a clase pagamento pra poder escolher qual tipo de valor usar
+menu do tecnico - opção 2 poder alterar status de ordens existentes ///feito///
+
