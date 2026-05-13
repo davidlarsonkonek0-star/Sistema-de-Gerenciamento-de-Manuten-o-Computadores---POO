@@ -529,7 +529,7 @@ class Program
         Console.WriteLine(" Equipamentos Disponíveis:");
         for (int i = 0; i < equipamentosSemOrdem.Count; i++)
         {
-            Console.WriteLine($" {i + 1} - ID: {equipamentosSemOrdem[i].Id} | Tipo: {equipamentosSemOrdem[i].Descricao}");
+            Console.WriteLine($" {i + 1} --- ID: {equipamentosSemOrdem[i].Id} | Tipo: {equipamentosSemOrdem[i].Descricao}");
             Console.WriteLine();
         }
 
