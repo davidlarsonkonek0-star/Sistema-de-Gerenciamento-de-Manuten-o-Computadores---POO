@@ -1,4 +1,5 @@
-///Falta arrumar///
+# Falta arrumar
+
 program.cs pra melhorar o fluxo e funcionamento e criar as listas de cada ordem de serviço , equipamento e pagamentos ///feito///
 arrumar as caixas pra ficar certo com os nomes diferentes e arruma o fluxo do tecnico
  pra alterar os status e conseguir fazer o diagnostico e manutenção //feito///
@@ -6,5 +7,6 @@ arrumar as caixas pra ficar certo com os nomes diferentes e arruma o fluxo do te
 arrumar o pagamento em especie pra usar o cash ao invez do money atualizando a classe pagamento ///feito///
 usar Cash em PagamentoEspecie sem alterar muito o sistema ///feito///
 
-menu do tecnico - opção 2 poder alterar status de ordens existentes ///feito///
+menu do tecnico opção 2 poder alterar status de ordens existentes ///feito///
 
+adicionei uma funçao pra centralizar o nome nas ciaxas de Bem vindo ///feito///

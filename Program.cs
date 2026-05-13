@@ -92,9 +92,7 @@ class Program
         {
             Console.Clear();
             ExibirTitulo();
-            Console.WriteLine("  ╔══════════════════════════════════════════╗");
-            Console.WriteLine($" ║     BEM-VINDO, {clienteLogado!.Nome}!    ║");
-            Console.WriteLine("  ╚══════════════════════════════════════════╝");
+            ExibirMensagemBemVindo(clienteLogado!.Nome);
             Console.WriteLine();
             Console.WriteLine(" 1 - Cadastrar Equipamento");
             Console.WriteLine(" 2 - Ver Meus Equipamentos");
@@ -393,9 +391,7 @@ class Program
         {
             Console.Clear();
             ExibirTitulo();
-            Console.WriteLine(" ╔══════════════════════════════════════════╗");
-            Console.WriteLine($"║     BEM-VINDO, {tecnicoLogado!.Nome}!    ║");
-            Console.WriteLine(" ╚══════════════════════════════════════════╝");
+            ExibirMensagemBemVindo(tecnicoLogado!.Nome);
             Console.WriteLine();
             Console.WriteLine(" 1 - Ver Equipamentos Novos para Atendimento");
             Console.WriteLine(" 2 - Abrir Ordem ou Alterar Status");
@@ -884,6 +880,19 @@ class Program
         Console.WriteLine(" ║        SISTEMA DE MANUTENÇÃO DE PC       ║");
         Console.WriteLine(" ╚══════════════════════════════════════════╝");
         Console.WriteLine();
+    }
+
+    static void ExibirMensagemBemVindo(string nome)
+    {
+        string texto = $"BEM-VINDO, {nome}!";
+        int espacoTotalDisponivel = 40;
+        int espacoNecessario = espacoTotalDisponivel - texto.Length;
+        int espacoEsquerda = espacoNecessario / 2;
+        int espacoDireita = espacoNecessario - espacoEsquerda;
+
+        Console.WriteLine(" ╔══════════════════════════════════════════╗");
+        Console.WriteLine($" ║{new string(' ', espacoEsquerda)}{texto}{new string(' ', espacoDireita)}║");
+        Console.WriteLine(" ╚══════════════════════════════════════════╝");
     }
 
     static void AguardarEnter()
