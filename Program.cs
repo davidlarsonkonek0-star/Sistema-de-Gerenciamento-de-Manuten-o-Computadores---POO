@@ -318,8 +318,8 @@ class Program
         {
             var orden = ordensCliente.FirstOrDefault(o => o.Id == eq.Id);
             string statusOrdem = orden?.Status ?? "Aguardando Tecnico";
-            Console.WriteLine($" Equipamento ID: {eq.Id}:{eq.Descricao}");
-            Console.WriteLine($" Status da Ordem: {statusOrdem}");
+            Console.WriteLine($" Equipamento ID: {eq.Id} | Tipo: {eq.GetType().Name} |");
+            Console.WriteLine($"  Descrição:{eq.Descricao} | Status da Ordem: {statusOrdem}");
         }
 
         Console.WriteLine("\n Ordens de Serviço:");
