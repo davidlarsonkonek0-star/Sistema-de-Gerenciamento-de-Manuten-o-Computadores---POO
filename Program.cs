@@ -483,7 +483,7 @@ class Program
         Console.Clear();
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
-        Console.WriteLine(" ║      ABRIR OU ALTERAR ORDEM DE SERVIÇO   ║");
+        Console.WriteLine(" ║     ABRIR OU ALTERAR ORDEM DE SERVIÇO    ║");
         Console.WriteLine(" ╚══════════════════════════════════════════╝");
         Console.WriteLine();
         Console.WriteLine(" 1 - Abrir Nova Ordem de Serviço");
@@ -572,7 +572,7 @@ class Program
         Console.Clear();
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
-        Console.WriteLine(" ║       ALTERAR STATUS DA ORDEM DE SERVIÇO ║");
+        Console.WriteLine(" ║    ALTERAR STATUS DA ORDEM DE SERVIÇO    ║");
         Console.WriteLine(" ╚══════════════════════════════════════════╝");
         Console.WriteLine();
 
@@ -695,7 +695,7 @@ class Program
         Console.Clear();
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
-        Console.WriteLine(" ║           DIAGNOSTICAR SERVIÇO           ║");
+        Console.WriteLine(" ║          DIAGNOSTICAR SERVIÇO            ║");
         Console.WriteLine(" ╚══════════════════════════════════════════╝");
         Console.WriteLine();
 
@@ -802,7 +802,7 @@ class Program
         Console.Clear();
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
-        Console.WriteLine(" ║         FINALIZAR ORDEM DE SERVIÇO       ║");
+        Console.WriteLine(" ║        FINALIZAR ORDEM DE SERVIÇO        ║");
         Console.WriteLine(" ╚══════════════════════════════════════════╝");
         Console.WriteLine();
 
@@ -844,7 +844,7 @@ class Program
         Console.Clear();
         ExibirTitulo();
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
-        Console.WriteLine(" ║         RELATÓRIO TÉCNICO DE SERVIÇOS    ║");
+        Console.WriteLine(" ║      RELATÓRIO TÉCNICO DE SERVIÇOS       ║");
         Console.WriteLine(" ╚══════════════════════════════════════════╝");
         Console.WriteLine();
 
@@ -877,7 +877,7 @@ class Program
     static void ExibirTitulo()
     {
         Console.WriteLine(" ╔══════════════════════════════════════════╗");
-        Console.WriteLine(" ║        SISTEMA DE MANUTENÇÃO DE PC       ║");
+        Console.WriteLine(" ║       SISTEMA DE MANUTENÇÃO DE PC        ║");
         Console.WriteLine(" ╚══════════════════════════════════════════╝");
         Console.WriteLine();
     }
