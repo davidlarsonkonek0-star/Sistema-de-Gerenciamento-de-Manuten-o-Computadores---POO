@@ -943,7 +943,7 @@ class Program
         Console.Write(" Tipo (Jato de Tinta): ");
         string tipo = Console.ReadLine()!;
 
-        Console.Write(" Nivel: ");
+        Console.Write(" Status dos cartuchos de Tinta em %: ");
         int nivel = int.Parse(Console.ReadLine()!);
 
         return new Impressora(sistema.GetProximoId(), descricao, clienteLogado!.Nome, DateTime.Now, "Aguardando", tipo, nivel);
