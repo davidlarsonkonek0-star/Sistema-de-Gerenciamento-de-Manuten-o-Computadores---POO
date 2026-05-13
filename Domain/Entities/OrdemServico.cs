@@ -34,12 +34,14 @@ namespace Domain.Entities
             Status = "Pago";
         }
 
+        /// <summary>Registra uma nova ordem.</summary>
         public void Abrir()
         {
             Status = "Aberta";
             DataEntrada = DateTime.Now;
         }
 
+        /// <summary>Ordem Aberta para Diagnostica.</summary>
         public void Diagnosticar()
         {
             if (Status != "Aberta")
@@ -47,6 +49,7 @@ namespace Domain.Entities
             Status = "Diagnosticada";
         }
 
+        /// <summary>Diagnostica a ordem.</summary>
         public void Executar()
         {
             if (Status != "Diagnosticada")
@@ -54,6 +57,7 @@ namespace Domain.Entities
             Status = "Em Execução";
         }
 
+        /// <summary>Finaliza a ordem.</summary>
         public void Finalizar()
         {
             if (Status != "Em Execução" && Status != "Diagnosticada")
