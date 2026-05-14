@@ -18,7 +18,7 @@ Empresas com múltiplos equipamentos de TI enfrentam dificuldades em:
 - **Cadastro de Equipamentos**: Registre computadores, notebooks, impressoras e servidores
 - **Gerenciamento de Ordens de Serviço**: Abra, monitore e finalize ordens de manutenção
 - **Diagnóstico de Equipamentos**: Realize diagnósticos e gere relatórios técnicos
-- **Processamento de Pagamentos**: Suporte a diferentes métodos (Cartão e Pix)
+- **Processamento de Pagamentos**: Suporte a diferentes métodos (Cartão, Pix e em Espécie)
 - **Gerenciamento de Clientes e Técnicos**: Organize contatos e responsáveis
 - **Relatórios do Sistema**: Visualize resumos gerais de ordens e equipamentos
 

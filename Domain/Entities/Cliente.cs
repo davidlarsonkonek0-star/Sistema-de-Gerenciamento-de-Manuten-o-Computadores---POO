@@ -13,7 +13,7 @@ namespace Domain.Entities
             Telefone = telefone;
         }
 
-    /// <summary>Lista de equipamentos do cliente</summary>
+        /// <summary>Lista de equipamentos do cliente</summary>
         public List<Equipamento> Equipamentos { get; set; } = new();
 
 

@@ -3,29 +3,25 @@ using Domain.ValueObjects;
 namespace Domain.Entities
 {
     /// <summary>
-    /// Representa um pagamento realizado via PIX.
+    /// Representa um pagamento realizado em espécie.
     /// </summary>
     public class PagamentoEspecie : Pagamento
     {
-        public string ValorMonetario { get; set; } = string.Empty;
-                                                                                                              /// <summary>
-                                                                                                              /// mudar para o cash para valore em especie
-                                                                                                              /// </summary>
-                                                                                                              /// <param name="Cash"></param>
-                                                                                                    
-        public PagamentoEspecie (string pagador, decimal valor, string valorMonetario) : base (pagador, new Money((long) Math.Round (valor * 100), "BRL"))
+        public Cash? ValorEmEspecie { get; private set; }
+
+        public PagamentoEspecie (string pagador, decimal valor) : base (pagador, new Money((long) Math.Round (valor * 100), "BRL"))
         {
-            ValorMonetario = valorMonetario;
+            ValorEmEspecie = new Cash((long) Math.Round (valor * 100), "BRL");
         }
 
         public override void Processar()
         {
-            Console.WriteLine($"Processando pagamento em Espécie para {Pagador}.");
+            Console.WriteLine($"Processando pagamento em Espécie para {Pagador} no valor de {ValorEmEspecie}.");
         }
 
         public override string ExibirResumo()
         {
-            return $"Pagador: {Pagador} - Valor: {Valor}";
+            return $"Pagador: {Pagador} - Valor: {ValorEmEspecie}";
         }
     }
 }

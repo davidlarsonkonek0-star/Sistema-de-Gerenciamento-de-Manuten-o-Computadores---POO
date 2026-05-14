@@ -34,14 +34,34 @@ namespace Domain.Entities
             Status = "Pago";
         }
 
+        /// <summary>Registra uma nova ordem.</summary>
         public void Abrir()
         {
             Status = "Aberta";
             DataEntrada = DateTime.Now;
         }
 
+        /// <summary>Ordem Aberta para Diagnostica.</summary>
+        public void Diagnosticar()
+        {
+            if (Status != "Aberta")
+                throw new InvalidOperationException("A ordem deve estar em status 'Aberta' para diagnosticar.");
+            Status = "Diagnosticada";
+        }
+
+        /// <summary>Diagnostica a ordem.</summary>
+        public void Executar()
+        {
+            if (Status != "Diagnosticada")
+                throw new InvalidOperationException("A ordem deve estar em status 'Diagnosticada' para executar.");
+            Status = "Em Execução";
+        }
+
+        /// <summary>Finaliza a ordem.</summary>
         public void Finalizar()
         {
+            if (Status != "Em Execução" && Status != "Diagnosticada")
+                throw new InvalidOperationException("A ordem deve estar em status 'Em Execução' ou 'Diagnosticada' para finalizar.");
             Status = "Finalizada";
         }
 

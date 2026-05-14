@@ -16,7 +16,7 @@ namespace Domain.Entities
 
         public override void Processar()
         {
-            Console.WriteLine($"Processando pagamento via PIX para {Pagador} usando chave {ChavePix}.");
+            Console.WriteLine($"Pagamento via PIX de {Pagador} usando a chave:{ChavePix}.");
         }
 
         public override string ExibirResumo()
