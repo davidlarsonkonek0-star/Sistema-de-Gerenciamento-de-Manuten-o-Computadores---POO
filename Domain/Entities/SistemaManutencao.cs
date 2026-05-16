@@ -11,6 +11,7 @@ namespace Domain.Entities
         public List<OrdemServico> Ordens { get; private set; } = new();
         public List<Pagamento> Pagamentos { get; private set; } = new();
         public List<Tecnico> Tecnicos {get; set;} = new();
+        public List<Cliente> Clientes { get; set; } = new();
         /// <summary>Adiciona um equipamento ao sistema.</summary>
         public void CadastrarEquipamento(Equipamento equipamento)
         {

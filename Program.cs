@@ -84,7 +84,21 @@ class Program
             return;
         }
 
-        clienteLogado = new Cliente(Guid.NewGuid().ToString(), nome, telefone);
+    clienteLogado = sistema.Clientes
+        .FirstOrDefault(c => c.Nome == nome && c.Telefone == telefone);
+
+        if (clienteLogado == null)
+        {
+            clienteLogado = new Cliente(Guid.NewGuid().ToString(), nome, telefone);
+
+            sistema.Clientes.Add(clienteLogado);
+
+            Console.WriteLine("\n Cliente cadastrado com sucesso!");
+        }
+        else
+        {
+            Console.WriteLine("\n Cliente encontrado!");
+        }
 
         int opcao;
 
