@@ -383,7 +383,21 @@ class Program
             return;
         }
 
+        tecnicoLogado = sistema.Tecnicos
+    .FirstOrDefault(t => t.Nome == nomeTecnico);
+
+    if (tecnicoLogado == null)
+    {
         tecnicoLogado = new Tecnico(Guid.NewGuid().ToString(), nomeTecnico, especialidade);
+
+        sistema.Tecnicos.Add(tecnicoLogado);
+
+        Console.WriteLine("\n Técnico cadastrado com sucesso!");
+    }
+    else
+    {
+        Console.WriteLine("\n Técnico encontrado!");
+    }
 
         int opcao;
 
@@ -943,7 +957,7 @@ class Program
         Console.Write(" Tipo (Jato de Tinta): ");
         string tipo = Console.ReadLine()!;
 
-        Console.Write(" Status dos cartuchos de Tinta em %: ");
+        Console.Write(" Status dos cartuchos de inta em %: ");
         int nivel = int.Parse(Console.ReadLine()!);
 
         return new Impressora(sistema.GetProximoId(), descricao, clienteLogado!.Nome, DateTime.Now, "Aguardando", tipo, nivel);
